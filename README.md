@@ -8,5 +8,5 @@
 ## Installation
 
 ```bash
-npx skills add `
+npx skills add https://github.com/river-walras/virtus.git
 ```
