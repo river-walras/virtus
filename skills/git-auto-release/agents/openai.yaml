@@ -1,0 +1,4 @@
+interface:
+  display_name: "Git Auto Release"
+  short_description: "Review diff, commit, tag, and push changes."
+  default_prompt: "Review the git diff, create an appropriate commit, tag the release, and push it."
