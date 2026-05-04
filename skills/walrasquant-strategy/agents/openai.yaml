@@ -1,0 +1,4 @@
+interface:
+  display_name: "WalrasQuant Strategy"
+  short_description: "Write WalrasQuant trading strategies."
+  default_prompt: "Help me write or modify a WalrasQuant strategy."
