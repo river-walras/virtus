@@ -1,6 +1,36 @@
 # Claude Blog Knowledge Base Index
 
-This index categorizes all 114 blog posts by topic. Use it to identify which blogs answer specific questions.
+This index categorizes all 130 blog posts by topic. Use it to identify which blogs answer specific questions.
+
+## Recently Fetched Posts
+
+<!-- AUTO-GENERATED: recent-posts START -->
+| File | Published | Categories | What it answers |
+|------|-----------|------------|-----------------|
+| `deploying-claude-across-financial-services.md` | May 5, 2026 | Enterprise AI, Claude Cowork, Claude Enterprise | Anthropic introduced a financial-services deployment guide covering how firms use Claude across research, deal work, underwriting, claims, model re... |
+| `how-a-non-technical-project-manager-built-and-shipped-a-stress-management-app-with-claude-code-in-six-weeks.md` | May 1, 2026 | Claude Code | This founder story profiles Kostiantyn Vlasenko, a project manager with no prior coding experience who built and shipped Respiro, an iOS stress man... |
+| `lessons-from-building-claude-code-prompt-caching-is-everything.md` | April 30, 2026 | Claude Code | Anthropic shares prompt-caching lessons from Claude Code. The core message is that long-running agentic products depend on high cache hit rates to... |
+| `how-kepler-built-verifiable-ai-for-financial-services-with-claude.md` | April 30, 2026 | Enterprise AI, Claude Platform | This startup story explains how Kepler uses Claude as a reasoning layer for verifiable financial research. Kepler indexes SEC filings, earnings cal... |
+| `claude-security-public-beta.md` | April 30, 2026 | Product announcements, Claude Security | Claude Security became available in public beta for Claude Enterprise customers. It lets teams scan code for vulnerabilities and generate proposed... |
+| `building-ai-agents-for-the-enterprise.md` | April 30, 2026 | Agents, Claude Cowork | Anthropic introduces a guide for enterprise AI transformation and explains how organizations can use Claude Cowork to bring agentic workflows to te... |
+| `product-development-in-the-agentic-era.md` | April 29, 2026 | Agents, Claude Platform | Jess Yan, product manager for Claude Managed Agents, explains how Claude, Claude Code, Claude Cowork, and Managed Agents change product-management... |
+| `new-guide-deploying-claude-across-the-enterprise-with-claude-cowork.md` | April 29, 2026 | Claude Cowork, Claude Enterprise | Anthropic introduced a guide for deploying Claude Cowork across business functions. The post positions Cowork as bringing Claude Code-style agentic... |
+| `claude-api-skill.md` | April 29, 2026 | Agents, Claude Code, Claude Enterprise | Anthropic announced that CodeRabbit, JetBrains, Resolve AI, and Warp are bundling the `claude-api` skill. The skill helps developers write producti... |
+| `onboarding-claude-code-like-a-new-developer-lessons-from-17-years-of-development.md` | April 28, 2026 | Claude Code | This post describes how Brendan MacLean of the University of Washington's MacCoss Lab onboarded Claude Code to Skyline, a 700,000+ line C# protein-... |
+| `connectors-for-everyday-life.md` | April 23, 2026 | Product announcements, Claude apps | Claude expanded connectors beyond work tools to everyday consumer services. New connectors include AllTrails, Audible, Booking.com, Instacart, Intu... |
+| `claude-managed-agents-memory.md` | April 23, 2026 | Product announcements, Claude Platform | Memory for Claude Managed Agents entered public beta. Agents can now learn across sessions using a filesystem-based memory layer that developers ca... |
+| `building-agents-that-reach-production-systems-with-mcp.md` | April 22, 2026 | Agents, Claude Platform | This post compares three ways to connect agents to external systems: direct API calls, command-line interfaces, and Model Context Protocol (MCP). I... |
+| `meet-the-winners-of-our-built-with-opus-4-6-claude-code-hackathon.md` | April 20, 2026 | Claude Code | Anthropic profiles winners from the Built with Opus 4.6 Claude Code hackathon. Four of five winners were not professional developers, and projects... |
+| `best-practices-for-using-claude-opus-4-7-with-claude-code.md` | April 16, 2026 | Claude Code | Opus 4.7 is positioned as Anthropic's strongest generally available model for coding, enterprise workflows, and long-running agentic tasks. The pos... |
+| `claude-code-desktop-redesign.md` | April 14, 2026 | Claude Code, Product announcements | Anthropic released a redesigned Claude Code desktop app built around running and managing multiple coding-agent sessions at once. |
+| `preparing-your-security-program-for-ai-accelerated-offense.md` | April 10, 2026 | Agents, Claude Enterprise, Security | Anthropic's security teams have published recommendations for organizations preparing defenses against AI-enabled cyber threats. The guidance stems... |
+| `claude-managed-agents.md` | April 8, 2026 | Product announcements, Claude Platform, Agents | Anthropic has launched Claude Managed Agents, a suite of composable APIs designed to accelerate the development and deployment of cloud-hosted agen... |
+| `harnessing-claudes-intelligence.md` | April 2, 2026 | Agents, Claude Platform | Source for Harnessing Claude's Intelligence. |
+| `claude-builds-visuals.md` | March 12, 2026 | Product announcements, Claude apps, Education | Source for Claude now creates interactive charts, diagrams and visualizations. |
+| `how-enterprises-are-building-ai-agents-in-2026.md` | December 9, 2025 | Enterprise AI | A survey of over 500 technical leaders reveals enterprises are rapidly deploying AI agents across operations, moving beyond simple task automation... |
+| `improving-frontend-design-through-skills.md` | November 12, 2025 | Claude Code, Claude apps | When language models generate frontend interfaces without guidance, they typically converge toward generic aesthetics—Inter fonts, purple gradients... |
+| `building-ai-agents-in-financial-services.md` | October 30, 2025 | Agents, Claude Platform, Financial services | AI agents in financial services move beyond pilots to deliver concrete business value by autonomously managing business processes with human oversi... |
+<!-- AUTO-GENERATED: recent-posts END -->
 
 ---
 
@@ -14,10 +44,13 @@ This index categorizes all 114 blog posts by topic. Use it to identify which blo
 | `how-to-configure-hooks.md` | How do I configure hooks in Claude Code? What events can trigger hooks? |
 | `subagents-in-claude-code.md` | How do subagents work in Claude Code? What is parallelization? |
 | `claude-code-on-the-web.md` | What is Claude Code on the web? How does the browser-based version work? |
+| `claude-code-desktop-redesign.md` | What changed in Claude Code desktop? How do parallel sessions, side chats, panes, and plugins work? |
 | `scaling-agentic-coding.md` | How do I roll out Claude Code across my engineering organization? |
 | `beyond-permission-prompts-making-claude-code-more-secure-and-autonomous.md` | How does Claude Code sandboxing work? How is it secured against prompt injection? |
 | `preview-review-and-merge-with-claude-code.md` | How does Claude Code handle PR creation, review, and merging? |
 | `claude-code-and-slack.md` | How does Claude Code integrate with Slack? |
+| `best-practices-for-using-claude-opus-4-7-with-claude-code.md` | How should I use Opus 4.7 in Claude Code? What effort level and adaptive thinking settings should I choose? |
+| `onboarding-claude-code-like-a-new-developer-lessons-from-17-years-of-development.md` | How do I onboard Claude Code to a large legacy codebase? How should I maintain context and skills? |
 
 ## Claude Code — Specific Tasks & Workflows
 
@@ -32,6 +65,9 @@ This index categorizes all 114 blog posts by topic. Use it to identify which blo
 | `building-companies-with-claude-code.md` | How are companies using Claude Code to build their products? |
 | `how-anthropic-teams-use-claude-code.md` | How do Anthropic's own teams use Claude Code? What non-obvious use cases exist? |
 | `how-brex-improves-code-quality-and-productivity-with-claude-code.md` | How does Brex use Claude Code? What results did they achieve? |
+| `lessons-from-building-claude-code-prompt-caching-is-everything.md` | How does Claude Code structure prompts for caching? How do Plan Mode, tool search, and compaction avoid cache breaks? |
+| `how-a-non-technical-project-manager-built-and-shipped-a-stress-management-app-with-claude-code-in-six-weeks.md` | How can a non-technical builder ship an app with Claude Code? How did Respiro use multi-agent workflows? |
+| `meet-the-winners-of-our-built-with-opus-4-6-claude-code-hackathon.md` | What projects won the Opus 4.6 Claude Code hackathon? What did non-developers build? |
 
 ## Claude Code — Plugins & Extensions
 
@@ -39,6 +75,7 @@ This index categorizes all 114 blog posts by topic. Use it to identify which blo
 |------|----------------|
 | `claude-code-plugins.md` | What are Claude Code plugins? How do I install and create them? |
 | `claude-code-remote-mcp.md` | How do I use remote MCP servers in Claude Code? What integrations are available? |
+| `claude-api-skill.md` | What is the Claude API skill? Which coding tools bundle it? How does it help with model upgrades and API code? |
 
 ## Claude Code — Enterprise & Admin
 
@@ -64,6 +101,7 @@ This index categorizes all 114 blog posts by topic. Use it to identify which blo
 | `organization-skills-and-directory.md` | How do I organize and manage skills? What is the skills directory? |
 | `improving-skill-creator-test-measure-and-refine-agent-skills.md` | How do I test and measure skill performance? |
 | `improving-frontend-design-through-skills.md` | How can skills improve frontend design work? |
+| `claude-api-skill.md` | How does the Claude API skill encode current API knowledge for coding agents? |
 
 ---
 
@@ -76,6 +114,8 @@ This index categorizes all 114 blog posts by topic. Use it to identify which blo
 | `multi-agent-coordination-patterns.md` | How do agents coordinate? What patterns exist for agent collaboration? |
 | `building-agents-with-the-claude-agent-sdk.md` | How do I build agents with the Claude Agent SDK? What is the agent loop? |
 | `claude-managed-agents.md` | What are Claude-managed agents? How do they differ from custom agents? |
+| `claude-managed-agents-memory.md` | How does memory work in Claude Managed Agents? How are memories stored, scoped, audited, and shared? |
+| `product-development-in-the-agentic-era.md` | How can product managers use Claude Managed Agents and Claude Code to prototype, automate, and monitor workflows? |
 | `seeing-like-an-agent.md` | How do AI agents perceive and interpret their environment? |
 
 ---
@@ -89,6 +129,7 @@ This index categorizes all 114 blog posts by topic. Use it to identify which blo
 | `connectors-directory.md` | What MCP connectors are available? Where is the directory? |
 | `agent-capabilities-api.md` | What is the MCP connector in the Anthropic API? How do I use it? |
 | `integrations.md` | What integrations are available? Jira, Zapier, Asana, etc.? |
+| `building-agents-that-reach-production-systems-with-mcp.md` | When should production agents use MCP rather than direct APIs or CLIs? How do I design remote MCP servers? |
 
 ---
 
@@ -102,6 +143,8 @@ This index categorizes all 114 blog posts by topic. Use it to identify which blo
 | `harnessing-claudes-intelligence.md` | How do businesses harness Claude's intelligence for enterprise use? |
 | `your-thinking-partner.md` | How does Claude act as a thinking partner for knowledge work? |
 | `product-management-on-the-ai-exponential.md` | How does AI change product management? |
+| `product-development-in-the-agentic-era.md` | How is product development changing with Managed Agents, Claude Code, and Claude Cowork? |
+| `building-ai-agents-for-the-enterprise.md` | How should enterprises deploy AI agents and Claude Cowork? What are the transformation pillars? |
 | `how-anthropic-uses-claude-marketing.md` | How does Anthropic's marketing team use Claude? |
 | `how-anthropic-uses-claude-legal.md` | How does Anthropic's legal team use Claude? |
 
@@ -112,6 +155,8 @@ This index categorizes all 114 blog posts by topic. Use it to identify which blo
 | File | What it answers |
 |------|----------------|
 | `building-ai-agents-in-financial-services.md` | How do AI agents work in financial services? What are the challenges? |
+| `deploying-claude-across-financial-services.md` | How should financial services firms deploy Claude? What finance agent templates and rollout phases are recommended? |
+| `how-kepler-built-verifiable-ai-for-financial-services-with-claude.md` | How did Kepler build verifiable financial research with Claude, deterministic execution, and provenance? |
 | `opus-4-6-finance.md` | How is Claude Opus 4.6 used in finance? What results do customers achieve? |
 | `cowork-plugins-finance.md` | How do Cowork plugins serve financial workflows? |
 | `behind-model-launch-what-customers-discovered-testing-claude-opus-4-6-early.md` | What did early customers discover testing Claude Opus 4.6? |
@@ -136,6 +181,7 @@ This index categorizes all 114 blog posts by topic. Use it to identify which blo
 | `dispatch-and-computer-use.md` | How does Claude's computer use capability work for dispatch workflows? |
 | `beyond-permission-prompts-making-claude-code-more-secure-and-autonomous.md` | How does sandboxing make Claude Code more secure? |
 | `automate-security-reviews-with-claude-code.md` | How do I automate security reviews with Claude Code? |
+| `claude-security-public-beta.md` | What is Claude Security? How does vulnerability scanning, triage, remediation, and scheduled coverage work? |
 | `claude-for-chrome.md` | How does the Claude Chrome extension work? What security measures exist? |
 
 ---
@@ -159,6 +205,8 @@ This index categorizes all 114 blog posts by topic. Use it to identify which blo
 | `context-management.md` | How do context editing and the memory tool work? What performance gains? |
 | `web-search-api.md` | How do I use web search in the Anthropic API? |
 | `agent-capabilities-api.md` | What agent capabilities does the API support? Code execution, Files API, etc.? |
+| `claude-managed-agents-memory.md` | How does public beta memory for Claude Managed Agents work through the platform? |
+| `claude-api-skill.md` | How can the Claude API skill help with prompt caching, compaction, Managed Agents, and model migration? |
 | `message-batches-api.md` | How does the Message Batches API work? How much does it save? |
 | `tool-use-ga.md` | How does tool use work with Claude? What can it do? |
 | `introducing-citations-api.md` | What is the Citations API? How do I add source references to responses? |
@@ -197,6 +245,7 @@ This index categorizes all 114 blog posts by topic. Use it to identify which blo
 | `claude-excel-powerpoint-updates.md` | What are the latest Excel and PowerPoint features in Claude? |
 | `research.md` | How does Claude's Research feature work? What is Google Workspace integration? |
 | `integrations.md` | What integrations does Claude support? How do I connect external tools? |
+| `connectors-for-everyday-life.md` | What new everyday connectors are available in Claude? How does connector suggestion, privacy, and user control work? |
 | `web-search.md` | When did web search become available in Claude.ai? |
 | `improved-web-search-with-dynamic-filtering.md` | What improvements were made to Claude's web search? |
 | `auto-mode.md` | What is auto mode in Claude? How does it work? |
@@ -215,6 +264,8 @@ This index categorizes all 114 blog posts by topic. Use it to identify which blo
 | `cowork-research-preview.md` | What is Claude Cowork? How does it differ from Chat? |
 | `cowork-plugins.md` | What are Cowork plugins? How do they extend Cowork's capabilities? |
 | `cowork-plugins-across-enterprise.md` | How are Cowork plugins deployed across an enterprise? |
+| `new-guide-deploying-claude-across-the-enterprise-with-claude-cowork.md` | How should organizations deploy Claude Cowork across business functions? What maturity model and six-month roadmap are recommended? |
+| `building-ai-agents-for-the-enterprise.md` | How does Claude Cowork help bring enterprise AI agents to every team? |
 | `workspaces.md` | What are API Workspaces? How do I manage multiple deployments? |
 | `claude-code-and-new-admin-controls-for-business-plans.md` | What admin controls are available for Claude Code on business plans? |
 
@@ -228,6 +279,7 @@ This index categorizes all 114 blog posts by topic. Use it to identify which blo
 | `productivity-platforms.md` | How does Claude integrate with Microsoft 365 (SharePoint, Outlook, Teams)? |
 | `claude-now-available-in-microsoft-365-copilot.md` | How is Claude available in Microsoft 365 Copilot? |
 | `connectors-directory.md` | Where is the Claude connectors directory? What tools are available? |
+| `connectors-for-everyday-life.md` | Which everyday apps connect to Claude? How do connector suggestions and privacy controls work? |
 | `claude-on-google-cloud-fedramp-high.md` | Is Claude available for government/FedRAMP workloads? |
 
 ---
@@ -241,6 +293,7 @@ This index categorizes all 114 blog posts by topic. Use it to identify which blo
 | `amazon-bedrock-general-availability.md` | When did Claude become generally available on Amazon Bedrock? |
 | `claude-2-amazon-bedrock.md` | When was Claude 2 on Amazon Bedrock? Who uses it? |
 | `claude-2-1-prompting.md` | What is the best prompting technique for long-context tasks with Claude 2.1? |
+| `best-practices-for-using-claude-opus-4-7-with-claude-code.md` | How does Opus 4.7 behave in Claude Code? What effort defaults and migration considerations changed? |
 
 ---
 
@@ -252,3 +305,5 @@ This index categorizes all 114 blog posts by topic. Use it to identify which blo
 | `seeing-like-an-agent.md` | How do agents perceive their environment? |
 | `the-advisor-strategy.md` | What is the advisor strategy for AI deployment? |
 | `building-ai-agents-for-startups.md` | How should startups approach building AI agents? |
+| `building-agents-that-reach-production-systems-with-mcp.md` | How should production agents connect to external systems through MCP? |
+| `lessons-from-building-claude-code-prompt-caching-is-everything.md` | What prompt-caching patterns should long-running agents use? |
