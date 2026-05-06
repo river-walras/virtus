@@ -1,0 +1,62 @@
+# Alpha Vault Ref Index
+
+- Total topics: **55**
+- Priority order: bundled ipynb -> bundled local markdown docs -> bundled code implementation
+
+| Category | Topic | Ref | Bundle |
+| --- | --- | --- | --- |
+| `A-量化基本面` | `华泰FFScore` | `skills/alpha-vault/ref/A-量化基本面/华泰FFScore/summary.md` | `skills/alpha-vault/ref/A-量化基本面/华泰FFScore` |
+| `A-量化基本面` | `申万大师系列十三` | `skills/alpha-vault/ref/A-量化基本面/申万大师系列十三/summary.md` | `skills/alpha-vault/ref/A-量化基本面/申万大师系列十三` |
+| `B-因子构建类` | `APM因子模型` | `skills/alpha-vault/ref/B-因子构建类/APM因子模型/summary.md` | `skills/alpha-vault/ref/B-因子构建类/APM因子模型` |
+| `B-因子构建类` | `A股市场中如何构造动量因子？` | `skills/alpha-vault/ref/B-因子构建类/A股市场中如何构造动量因子/summary.md` | `skills/alpha-vault/ref/B-因子构建类/A股市场中如何构造动量因子` |
+| `B-因子构建类` | `上下影线因子` | `skills/alpha-vault/ref/B-因子构建类/上下影线因子/summary.md` | `skills/alpha-vault/ref/B-因子构建类/上下影线因子` |
+| `B-因子构建类` | `个股动量效应的识别及球队硬币因子` | `skills/alpha-vault/ref/B-因子构建类/个股动量效应的识别及球队硬币因子/summary.md` | `skills/alpha-vault/ref/B-因子构建类/个股动量效应的识别及球队硬币因子` |
+| `B-因子构建类` | `企业生命周期` | `skills/alpha-vault/ref/B-因子构建类/企业生命周期/summary.md` | `skills/alpha-vault/ref/B-因子构建类/企业生命周期` |
+| `B-因子构建类` | `再论动量因子` | `skills/alpha-vault/ref/B-因子构建类/再论动量因子/summary.md` | `skills/alpha-vault/ref/B-因子构建类/再论动量因子` |
+| `B-因子构建类` | `凸显理论STR因子` | `skills/alpha-vault/ref/B-因子构建类/凸显理论STR因子/summary.md` | `skills/alpha-vault/ref/B-因子构建类/凸显理论STR因子` |
+| `B-因子构建类` | `剔除跨期截面相关性的纯真波动率因子` | `skills/alpha-vault/ref/B-因子构建类/剔除跨期截面相关性的纯真波动率因子/summary.md` | `skills/alpha-vault/ref/B-因子构建类/剔除跨期截面相关性的纯真波动率因子` |
+| `B-因子构建类` | `因子择时` | `skills/alpha-vault/ref/B-因子构建类/因子择时/summary.md` | `skills/alpha-vault/ref/B-因子构建类/因子择时` |
+| `B-因子构建类` | `基于量价关系度量股票的买卖压力` | `skills/alpha-vault/ref/B-因子构建类/基于量价关系度量股票的买卖压力/summary.md` | `skills/alpha-vault/ref/B-因子构建类/基于量价关系度量股票的买卖压力` |
+| `B-因子构建类` | `基于隔夜与日间的网络关系因子` | `skills/alpha-vault/ref/B-因子构建类/基于隔夜与日间的网络关系因子/summary.md` | `skills/alpha-vault/ref/B-因子构建类/基于隔夜与日间的网络关系因子` |
+| `B-因子构建类` | `基金重仓超配因子及其对指数增强组合的影响` | `skills/alpha-vault/ref/B-因子构建类/基金重仓超配因子及其对指数增强组合的影响/summary.md` | `skills/alpha-vault/ref/B-因子构建类/基金重仓超配因子及其对指数增强组合的影响` |
+| `B-因子构建类` | `处置效应因子` | `skills/alpha-vault/ref/B-因子构建类/处置效应因子/summary.md` | `skills/alpha-vault/ref/B-因子构建类/处置效应因子` |
+| `B-因子构建类` | `多因子指数增强` | `skills/alpha-vault/ref/B-因子构建类/多因子指数增强/summary.md` | `skills/alpha-vault/ref/B-因子构建类/多因子指数增强` |
+| `B-因子构建类` | `开源证券-市场微观结构研究系列（1）：A股反转之力的微观来源` | `skills/alpha-vault/ref/B-因子构建类/开源证券-市场微观结构研究系列-1-A股反转之力的微观来源/summary.md` | `skills/alpha-vault/ref/B-因子构建类/开源证券-市场微观结构研究系列-1-A股反转之力的微观来源` |
+| `B-因子构建类` | `振幅因子的隐藏结构` | `skills/alpha-vault/ref/B-因子构建类/振幅因子的隐藏结构/summary.md` | `skills/alpha-vault/ref/B-因子构建类/振幅因子的隐藏结构` |
+| `B-因子构建类` | `来自优秀基金经理的超额收益` | `skills/alpha-vault/ref/B-因子构建类/来自优秀基金经理的超额收益/summary.md` | `skills/alpha-vault/ref/B-因子构建类/来自优秀基金经理的超额收益` |
+| `B-因子构建类` | `筹码因子` | `skills/alpha-vault/ref/B-因子构建类/筹码因子/summary.md` | `skills/alpha-vault/ref/B-因子构建类/筹码因子` |
+| `B-因子构建类` | `聪明钱因子模型的2.0版本` | `skills/alpha-vault/ref/B-因子构建类/聪明钱因子模型的2-0版本/summary.md` | `skills/alpha-vault/ref/B-因子构建类/聪明钱因子模型的2-0版本` |
+| `B-因子构建类` | `股票网络与网络中心度因子研究` | `skills/alpha-vault/ref/B-因子构建类/股票网络与网络中心度因子研究/summary.md` | `skills/alpha-vault/ref/B-因子构建类/股票网络与网络中心度因子研究` |
+| `B-因子构建类` | `行业有效量价因子与行业轮动策略` | `skills/alpha-vault/ref/B-因子构建类/行业有效量价因子与行业轮动策略/summary.md` | `skills/alpha-vault/ref/B-因子构建类/行业有效量价因子与行业轮动策略` |
+| `B-因子构建类` | `金股增强策略` | `skills/alpha-vault/ref/B-因子构建类/金股增强策略/summary.md` | `skills/alpha-vault/ref/B-因子构建类/金股增强策略` |
+| `B-因子构建类` | `高质量动量因子选股` | `skills/alpha-vault/ref/B-因子构建类/高质量动量因子选股/summary.md` | `skills/alpha-vault/ref/B-因子构建类/高质量动量因子选股` |
+| `B-因子构建类` | `高频价量相关性，意想不到的选股因子` | `skills/alpha-vault/ref/B-因子构建类/高频价量相关性-意想不到的选股因子/summary.md` | `skills/alpha-vault/ref/B-因子构建类/高频价量相关性-意想不到的选股因子` |
+| `C-择时类` | `C-VIX中国版VIX编制手册` | `skills/alpha-vault/ref/C-择时类/C-VIX中国版VIX编制手册/summary.md` | `skills/alpha-vault/ref/C-择时类/C-VIX中国版VIX编制手册` |
+| `C-择时类` | `CSVC框架及熊牛指标` | `skills/alpha-vault/ref/C-择时类/CSVC框架及熊牛指标/summary.md` | `skills/alpha-vault/ref/C-择时类/CSVC框架及熊牛指标` |
+| `C-择时类` | `ICU均线` | `skills/alpha-vault/ref/C-择时类/ICU均线/summary.md` | `skills/alpha-vault/ref/C-择时类/ICU均线` |
+| `C-择时类` | `QRS择时信号` | `skills/alpha-vault/ref/C-择时类/QRS择时信号/summary.md` | `skills/alpha-vault/ref/C-择时类/QRS择时信号` |
+| `C-择时类` | `RSRS择时指标` | `skills/alpha-vault/ref/C-择时类/RSRS择时指标/summary.md` | `skills/alpha-vault/ref/C-择时类/RSRS择时指标` |
+| `C-择时类` | `Trader-Company集成算法交易策略` | `skills/alpha-vault/ref/C-择时类/Trader-Company集成算法交易策略/summary.md` | `skills/alpha-vault/ref/C-择时类/Trader-Company集成算法交易策略` |
+| `C-择时类` | `低延迟趋势线与交易择时` | `skills/alpha-vault/ref/C-择时类/低延迟趋势线与交易择时/summary.md` | `skills/alpha-vault/ref/C-择时类/低延迟趋势线与交易择时` |
+| `C-择时类` | `北向资金交易能力一定强吗` | `skills/alpha-vault/ref/C-择时类/北向资金交易能力一定强吗/summary.md` | `skills/alpha-vault/ref/C-择时类/北向资金交易能力一定强吗` |
+| `C-择时类` | `另类ETF交易策略：日内动量` | `skills/alpha-vault/ref/C-择时类/另类ETF交易策略-日内动量/summary.md` | `skills/alpha-vault/ref/C-择时类/另类ETF交易策略-日内动量` |
+| `C-择时类` | `均线交叉结合通道突破择时研究` | `skills/alpha-vault/ref/C-择时类/均线交叉结合通道突破择时研究/summary.md` | `skills/alpha-vault/ref/C-择时类/均线交叉结合通道突破择时研究` |
+| `C-择时类` | `基于CCK模型的股票市场羊群效应研究` | `skills/alpha-vault/ref/C-择时类/基于CCK模型的股票市场羊群效应研究/summary.md` | `skills/alpha-vault/ref/C-择时类/基于CCK模型的股票市场羊群效应研究` |
+| `C-择时类` | `基于点位效率理论的个股趋势预测研究` | `skills/alpha-vault/ref/C-择时类/基于点位效率理论的个股趋势预测研究/summary.md` | `skills/alpha-vault/ref/C-择时类/基于点位效率理论的个股趋势预测研究` |
+| `C-择时类` | `基于相对强弱下单向波动差值应用` | `skills/alpha-vault/ref/C-择时类/基于相对强弱下单向波动差值应用/summary.md` | `skills/alpha-vault/ref/C-择时类/基于相对强弱下单向波动差值应用` |
+| `C-择时类` | `基于鳄鱼线的指数择时及轮动策略` | `skills/alpha-vault/ref/C-择时类/基于鳄鱼线的指数择时及轮动策略/summary.md` | `skills/alpha-vault/ref/C-择时类/基于鳄鱼线的指数择时及轮动策略` |
+| `C-择时类` | `小波分析` | `skills/alpha-vault/ref/C-择时类/小波分析/summary.md` | `skills/alpha-vault/ref/C-择时类/小波分析` |
+| `C-择时类` | `成交量的奥秘_另类价量共振指标的择时` | `skills/alpha-vault/ref/C-择时类/成交量的奥秘_另类价量共振指标的择时/summary.md` | `skills/alpha-vault/ref/C-择时类/成交量的奥秘_另类价量共振指标的择时` |
+| `C-择时类` | `扩散指标` | `skills/alpha-vault/ref/C-择时类/扩散指标/summary.md` | `skills/alpha-vault/ref/C-择时类/扩散指标` |
+| `C-择时类` | `技术分析算法框架与实战` | `skills/alpha-vault/ref/C-择时类/技术分析算法框架与实战/summary.md` | `skills/alpha-vault/ref/C-择时类/技术分析算法框架与实战` |
+| `C-择时类` | `技术分析算法框架与实战二` | `skills/alpha-vault/ref/C-择时类/技术分析算法框架与实战二/summary.md` | `skills/alpha-vault/ref/C-择时类/技术分析算法框架与实战二` |
+| `C-择时类` | `投资者情绪指数择时模型` | `skills/alpha-vault/ref/C-择时类/投资者情绪指数择时模型/summary.md` | `skills/alpha-vault/ref/C-择时类/投资者情绪指数择时模型` |
+| `C-择时类` | `指数高阶矩择时` | `skills/alpha-vault/ref/C-择时类/指数高阶矩择时/summary.md` | `skills/alpha-vault/ref/C-择时类/指数高阶矩择时` |
+| `C-择时类` | `时变夏普` | `skills/alpha-vault/ref/C-择时类/时变夏普/summary.md` | `skills/alpha-vault/ref/C-择时类/时变夏普` |
+| `C-择时类` | `特征分布建模择时` | `skills/alpha-vault/ref/C-择时类/特征分布建模择时/summary.md` | `skills/alpha-vault/ref/C-择时类/特征分布建模择时` |
+| `C-择时类` | `特征分布建模择时系列之二` | `skills/alpha-vault/ref/C-择时类/特征分布建模择时系列之二/summary.md` | `skills/alpha-vault/ref/C-择时类/特征分布建模择时系列之二` |
+| `C-择时类` | `结合改进HHT模型和分类算法的交易策略` | `skills/alpha-vault/ref/C-择时类/结合改进HHT模型和分类算法的交易策略/summary.md` | `skills/alpha-vault/ref/C-择时类/结合改进HHT模型和分类算法的交易策略` |
+| `C-择时类` | `行业指数顶部和底部信号` | `skills/alpha-vault/ref/C-择时类/行业指数顶部和底部信号/summary.md` | `skills/alpha-vault/ref/C-择时类/行业指数顶部和底部信号` |
+| `C-择时类` | `趋与势的量化定义研究` | `skills/alpha-vault/ref/C-择时类/趋与势的量化定义研究/summary.md` | `skills/alpha-vault/ref/C-择时类/趋与势的量化定义研究` |
+| `D-组合优化` | `DE算法下的组合优化` | `skills/alpha-vault/ref/D-组合优化/DE算法下的组合优化/summary.md` | `skills/alpha-vault/ref/D-组合优化/DE算法下的组合优化` |
+| `D-组合优化` | `MLT_TSMOM` | `skills/alpha-vault/ref/D-组合优化/MLT_TSMOM/summary.md` | `skills/alpha-vault/ref/D-组合优化/MLT_TSMOM` |

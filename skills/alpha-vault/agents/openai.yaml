@@ -1,0 +1,3 @@
+interface:
+  display_name: "Alpha Vault"
+  short_description: "Bundle quant notebooks, notes, and code into a portable skill ref"

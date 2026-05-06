@@ -1,0 +1,332 @@
+[
+  {
+    "category": "A-量化基本面",
+    "topic": "华泰FFScore",
+    "ref_path": "skills/alpha-vault/ref/A-量化基本面/华泰FFScore/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/A-量化基本面/华泰FFScore"
+  },
+  {
+    "category": "A-量化基本面",
+    "topic": "申万大师系列十三",
+    "ref_path": "skills/alpha-vault/ref/A-量化基本面/申万大师系列十三/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/A-量化基本面/申万大师系列十三"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "APM因子模型",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/APM因子模型/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/APM因子模型"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "A股市场中如何构造动量因子？",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/A股市场中如何构造动量因子/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/A股市场中如何构造动量因子"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "上下影线因子",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/上下影线因子/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/上下影线因子"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "个股动量效应的识别及球队硬币因子",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/个股动量效应的识别及球队硬币因子/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/个股动量效应的识别及球队硬币因子"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "企业生命周期",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/企业生命周期/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/企业生命周期"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "再论动量因子",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/再论动量因子/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/再论动量因子"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "凸显理论STR因子",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/凸显理论STR因子/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/凸显理论STR因子"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "剔除跨期截面相关性的纯真波动率因子",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/剔除跨期截面相关性的纯真波动率因子/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/剔除跨期截面相关性的纯真波动率因子"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "因子择时",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/因子择时/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/因子择时"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "基于量价关系度量股票的买卖压力",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/基于量价关系度量股票的买卖压力/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/基于量价关系度量股票的买卖压力"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "基于隔夜与日间的网络关系因子",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/基于隔夜与日间的网络关系因子/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/基于隔夜与日间的网络关系因子"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "基金重仓超配因子及其对指数增强组合的影响",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/基金重仓超配因子及其对指数增强组合的影响/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/基金重仓超配因子及其对指数增强组合的影响"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "处置效应因子",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/处置效应因子/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/处置效应因子"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "多因子指数增强",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/多因子指数增强/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/多因子指数增强"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "开源证券-市场微观结构研究系列（1）：A股反转之力的微观来源",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/开源证券-市场微观结构研究系列-1-A股反转之力的微观来源/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/开源证券-市场微观结构研究系列-1-A股反转之力的微观来源"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "振幅因子的隐藏结构",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/振幅因子的隐藏结构/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/振幅因子的隐藏结构"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "来自优秀基金经理的超额收益",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/来自优秀基金经理的超额收益/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/来自优秀基金经理的超额收益"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "筹码因子",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/筹码因子/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/筹码因子"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "聪明钱因子模型的2.0版本",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/聪明钱因子模型的2-0版本/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/聪明钱因子模型的2-0版本"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "股票网络与网络中心度因子研究",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/股票网络与网络中心度因子研究/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/股票网络与网络中心度因子研究"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "行业有效量价因子与行业轮动策略",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/行业有效量价因子与行业轮动策略/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/行业有效量价因子与行业轮动策略"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "金股增强策略",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/金股增强策略/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/金股增强策略"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "高质量动量因子选股",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/高质量动量因子选股/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/高质量动量因子选股"
+  },
+  {
+    "category": "B-因子构建类",
+    "topic": "高频价量相关性，意想不到的选股因子",
+    "ref_path": "skills/alpha-vault/ref/B-因子构建类/高频价量相关性-意想不到的选股因子/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/B-因子构建类/高频价量相关性-意想不到的选股因子"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "C-VIX中国版VIX编制手册",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/C-VIX中国版VIX编制手册/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/C-VIX中国版VIX编制手册"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "CSVC框架及熊牛指标",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/CSVC框架及熊牛指标/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/CSVC框架及熊牛指标"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "ICU均线",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/ICU均线/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/ICU均线"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "QRS择时信号",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/QRS择时信号/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/QRS择时信号"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "RSRS择时指标",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/RSRS择时指标/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/RSRS择时指标"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "Trader-Company集成算法交易策略",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/Trader-Company集成算法交易策略/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/Trader-Company集成算法交易策略"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "低延迟趋势线与交易择时",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/低延迟趋势线与交易择时/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/低延迟趋势线与交易择时"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "北向资金交易能力一定强吗",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/北向资金交易能力一定强吗/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/北向资金交易能力一定强吗"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "另类ETF交易策略：日内动量",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/另类ETF交易策略-日内动量/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/另类ETF交易策略-日内动量"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "均线交叉结合通道突破择时研究",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/均线交叉结合通道突破择时研究/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/均线交叉结合通道突破择时研究"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "基于CCK模型的股票市场羊群效应研究",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/基于CCK模型的股票市场羊群效应研究/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/基于CCK模型的股票市场羊群效应研究"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "基于点位效率理论的个股趋势预测研究",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/基于点位效率理论的个股趋势预测研究/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/基于点位效率理论的个股趋势预测研究"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "基于相对强弱下单向波动差值应用",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/基于相对强弱下单向波动差值应用/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/基于相对强弱下单向波动差值应用"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "基于鳄鱼线的指数择时及轮动策略",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/基于鳄鱼线的指数择时及轮动策略/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/基于鳄鱼线的指数择时及轮动策略"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "小波分析",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/小波分析/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/小波分析"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "成交量的奥秘_另类价量共振指标的择时",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/成交量的奥秘_另类价量共振指标的择时/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/成交量的奥秘_另类价量共振指标的择时"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "扩散指标",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/扩散指标/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/扩散指标"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "技术分析算法框架与实战",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/技术分析算法框架与实战/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/技术分析算法框架与实战"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "技术分析算法框架与实战二",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/技术分析算法框架与实战二/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/技术分析算法框架与实战二"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "投资者情绪指数择时模型",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/投资者情绪指数择时模型/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/投资者情绪指数择时模型"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "指数高阶矩择时",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/指数高阶矩择时/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/指数高阶矩择时"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "时变夏普",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/时变夏普/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/时变夏普"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "特征分布建模择时",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/特征分布建模择时/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/特征分布建模择时"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "特征分布建模择时系列之二",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/特征分布建模择时系列之二/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/特征分布建模择时系列之二"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "结合改进HHT模型和分类算法的交易策略",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/结合改进HHT模型和分类算法的交易策略/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/结合改进HHT模型和分类算法的交易策略"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "行业指数顶部和底部信号",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/行业指数顶部和底部信号/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/行业指数顶部和底部信号"
+  },
+  {
+    "category": "C-择时类",
+    "topic": "趋与势的量化定义研究",
+    "ref_path": "skills/alpha-vault/ref/C-择时类/趋与势的量化定义研究/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/C-择时类/趋与势的量化定义研究"
+  },
+  {
+    "category": "D-组合优化",
+    "topic": "DE算法下的组合优化",
+    "ref_path": "skills/alpha-vault/ref/D-组合优化/DE算法下的组合优化/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/D-组合优化/DE算法下的组合优化"
+  },
+  {
+    "category": "D-组合优化",
+    "topic": "MLT_TSMOM",
+    "ref_path": "skills/alpha-vault/ref/D-组合优化/MLT_TSMOM/summary.md",
+    "bundle_dir": "skills/alpha-vault/ref/D-组合优化/MLT_TSMOM"
+  }
+]
