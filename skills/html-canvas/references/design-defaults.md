@@ -190,6 +190,33 @@ Inline SVGs use a small class vocabulary:
 - **Drag**: native HTML5 drag-and-drop, `.dragover` adds outline + tint.
 - **Keyboard**: arrow keys for slide nav (`document.addEventListener('keydown', e => e.key === 'ArrowRight' && next())`).
 
+## ASCII trees, diagrams, and any whitespace-significant block
+
+If the artifact contains a file tree, ASCII diagram, box-drawing characters
+(`├ └ │ ─ ┌ ┐ ┘ └`), aligned columns, or any block where line breaks and
+spaces carry meaning — **it must be inside `<pre>`, or a container with
+`white-space: pre` (or `pre-wrap` if soft wrapping is OK)**. Default flow
+HTML collapses newlines and runs of whitespace, which silently destroys
+trees into one flowing paragraph and looks like a character-encoding bug
+even though the bytes are fine.
+
+```css
+/* Any class used for trees / ascii diagrams */
+.tree, .ascii {
+  white-space: pre;          /* never let newlines collapse */
+  font-family: var(--font-mono);
+  overflow-x: auto;          /* don't wrap; scroll instead */
+  tab-size: 2;
+}
+```
+
+Rules:
+
+- Prefer a real `<pre class="tree">…</pre>` over a `<div>` with manual `<br>`s.
+- Inside the `<pre>`, you may still use inline `<span>` for color (e.g. directory names in slate, file names in clay) — spans don't break preformatting.
+- Don't indent the `<pre>` content with HTML-source indentation, it will appear in the rendered output. Left-align the tree to column 0.
+- The file must declare `<meta charset="utf-8">` (already in the skeleton). Box-drawing characters require it.
+
 ## What NOT to do
 
 - ❌ No frameworks (React, Vue, Svelte, Alpine).

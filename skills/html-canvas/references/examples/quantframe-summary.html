@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>quantframe — code summary</title>
+<style>
+  :root {
+    --ivory:#FAF9F5; --slate:#141413; --clay:#D97757; --clay-d:#B85C3E;
+    --oat:#E3DACC; --olive:#788C5D; --rust:#B04A3F; --warning:#C78E3F; --info:#5C7CA3;
+    --gray-100:#F0EEE6; --gray-150:#F0EEE6; --gray-300:#D1CFC5; --gray-500:#87867F; --gray-700:#3D3D3A;
+    --serif: ui-serif, Georgia, "Times New Roman", serif;
+    --sans:  system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono:  ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--ivory); color: var(--gray-700);
+    font-family: var(--sans); font-size: 15px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased; padding: 56px 24px 120px;
+  }
+  .page {
+    max-width: 1180px; margin: 0 auto;
+    display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 56px;
+  }
+  @media (max-width: 920px) { .page { grid-template-columns: 1fr; } nav.toc { display: none; } }
+
+  /* nav */
+  nav.toc { position: sticky; top: 32px; align-self: start; font-size: 13px; }
+  nav.toc .label {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gray-500); margin-bottom: 12px;
+  }
+  nav.toc a {
+    display: block; padding: 5px 0 5px 12px;
+    border-left: 2px solid var(--gray-300);
+    color: var(--gray-700); text-decoration: none;
+    transition: border-color 120ms, color 120ms;
+  }
+  nav.toc a:hover { color: var(--slate); border-color: var(--slate); }
+  nav.toc .meta {
+    margin-top: 28px; border-top: 1px solid var(--gray-300); padding-top: 16px;
+    font-family: var(--mono); font-size: 11px; color: var(--gray-500); line-height: 1.7;
+  }
+  nav.toc .meta b { color: var(--gray-700); font-weight: 500; display: block; }
+
+  /* header */
+  .eyebrow {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gray-500); margin-bottom: 12px;
+  }
+  h1 {
+    font-family: var(--serif); font-weight: 500;
+    font-size: clamp(32px, 4vw, 42px); color: var(--slate);
+    letter-spacing: -0.015em; line-height: 1.1; margin-bottom: 14px;
+  }
+  h1 code { font-size: 0.92em; background: var(--gray-100); padding: 2px 10px;
+            border-radius: 6px; color: var(--clay); }
+  h2 {
+    font-family: var(--serif); font-weight: 500; font-size: 24px;
+    color: var(--slate); margin: 56px 0 14px; scroll-margin-top: 24px;
+    letter-spacing: -0.005em;
+  }
+  h3 { font-family: var(--serif); font-weight: 500; font-size: 17px;
+       color: var(--slate); margin: 22px 0 8px; }
+  p { margin-bottom: 12px; max-width: 720px; }
+  code { font-family: var(--mono); font-size: 13px;
+         background: var(--gray-100); padding: 1px 6px; border-radius: 4px; color: var(--slate); }
+
+  .tldr {
+    border: 1.5px solid var(--gray-300); border-left: 3px solid var(--clay);
+    border-radius: 12px; background: #fff;
+    padding: 18px 20px; margin-bottom: 8px; max-width: 760px;
+  }
+  .tldr b { color: var(--clay); font-weight: 600; }
+
+  /* stats strip */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    margin: 22px 0 8px; max-width: 760px;
+  }
+  @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  .stat {
+    border: 1.5px solid var(--gray-300); border-radius: 10px;
+    background: #fff; padding: 12px 14px;
+  }
+  .stat .v {
+    font-family: var(--serif); font-size: 22px; color: var(--slate);
+    line-height: 1; margin-bottom: 4px;
+  }
+  .stat .k {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--gray-500);
+  }
+
+  /* file map */
+  .tree {
+    border: 1.5px solid var(--gray-300); border-radius: 12px;
+    background: #fff; padding: 18px 20px;
+    font-family: var(--mono); font-size: 12.5px; color: var(--gray-700);
+    line-height: 1.85; max-width: 760px;
+  }
+  .tree .dir { color: var(--slate); font-weight: 500; }
+  .tree .note { color: var(--gray-500); margin-left: 12px; }
+  .tree .clay { color: var(--clay); }
+
+  /* svg */
+  .flow { border: 1.5px solid var(--gray-300); border-radius: 14px;
+          background: #fff; padding: 18px 16px; margin: 14px 0; }
+  .flow svg { width: 100%; height: auto; display: block; }
+  .flow .cap {
+    font-family: var(--mono); font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--gray-500); text-align: center; margin-top: 10px;
+  }
+  .st { fill: none; stroke: var(--gray-500); stroke-width: 2; stroke-linecap: round; }
+  .lc { fill: none; stroke: var(--clay);     stroke-width: 2.2; stroke-linecap: round; }
+  .da { stroke-dasharray: 4 4; }
+  .cl { fill: var(--clay); } .ol { fill: var(--olive); }
+  .oa { fill: var(--oat); } .gl { fill: var(--gray-300); }
+  .sl { fill: var(--slate); } .wh { fill: #fff; }
+  .nb { font-family: var(--mono); font-size: 10.5px; fill: var(--gray-500);
+        text-transform: uppercase; letter-spacing: 0.08em; }
+  .nl { font-family: var(--serif); font-size: 13px; fill: var(--slate); }
+
+  /* code block */
+  pre {
+    background: var(--slate); color: #E8E6DE;
+    padding: 16px 18px; border-radius: 10px;
+    font: 400 12.5px/1.65 var(--mono);
+    overflow-x: auto; margin: 12px 0; max-width: 100%;
+  }
+  pre .kw { color: var(--clay); }
+  pre .str { color: #B7C99A; }
+  pre .cm  { color: #87867F; font-style: italic; }
+  pre .fn  { color: #C9B98A; }
+  .filehdr {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--gray-100);
+    border: 1.5px solid var(--gray-300); border-bottom: none;
+    border-radius: 10px 10px 0 0; padding: 8px 14px;
+    font-family: var(--mono); font-size: 11.5px; color: var(--gray-700);
+    margin-top: 18px;
+  }
+  .filehdr .badge {
+    font-size: 10px; padding: 2px 8px; border-radius: 999px;
+    background: rgba(217,119,87,.14); color: var(--clay);
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .filehdr + pre { margin-top: 0; border-radius: 0 0 10px 10px; }
+
+  /* findings */
+  .find {
+    border: 1.5px solid var(--gray-300); border-radius: 12px;
+    background: #fff; padding: 14px 16px; margin: 10px 0;
+    border-left-width: 3px; max-width: 760px;
+  }
+  .find.info    { border-left-color: var(--info); }
+  .find.nit     { border-left-color: var(--gray-500); }
+  .find.concern { border-left-color: var(--warning); }
+  .find.blocker { border-left-color: var(--rust); }
+  .find .tag {
+    display: inline-flex; align-items: center; height: 20px; padding: 0 8px;
+    border-radius: 999px; font: 500 10.5px/1 var(--mono);
+    text-transform: uppercase; letter-spacing: 0.08em; margin-right: 8px;
+  }
+  .find.info    .tag { background: rgba(92,124,163,.14);  color: var(--info); }
+  .find.nit     .tag { background: var(--gray-100);        color: var(--gray-700); }
+  .find.concern .tag { background: rgba(199,142,63,.18);  color: var(--warning); }
+  .find.blocker .tag { background: rgba(176,74,63,.14);   color: var(--rust); }
+  .find .ttl { font-family: var(--serif); font-size: 15.5px; color: var(--slate); margin-bottom: 4px; }
+  .find p { font-size: 14px; margin: 4px 0 0; max-width: none; }
+  .find .where {
+    font-family: var(--mono); font-size: 11px; color: var(--gray-500);
+    margin-top: 4px;
+  }
+
+  /* tabs */
+  .tabs {
+    border: 1.5px solid var(--gray-300); border-radius: 10px;
+    background: #fff; margin: 14px 0; overflow: hidden; max-width: 760px;
+  }
+  .tabbar {
+    display: flex; border-bottom: 1px solid var(--gray-300); background: var(--gray-100);
+  }
+  .tabbar button {
+    appearance: none; border: none; background: none;
+    font-family: var(--mono); font-size: 12px; color: var(--gray-500);
+    padding: 10px 16px; cursor: pointer; border-right: 1px solid var(--gray-300);
+  }
+  .tabbar button.on {
+    background: #fff; color: var(--slate);
+    border-bottom: 2px solid var(--clay); margin-bottom: -1px;
+  }
+  .tabs pre { display: none; margin: 0; border-radius: 0; }
+  .tabs pre.on { display: block; }
+
+  /* commits */
+  .commits {
+    border: 1.5px solid var(--gray-300); border-radius: 12px;
+    background: #fff; padding: 6px 0; max-width: 760px;
+  }
+  .commits .row {
+    display: grid; grid-template-columns: 80px 1fr;
+    gap: 14px; padding: 8px 18px;
+    font-size: 13.5px; align-items: baseline;
+  }
+  .commits .row + .row { border-top: 1px solid var(--gray-150); }
+  .commits .sha {
+    font-family: var(--mono); font-size: 11.5px;
+    color: var(--clay);
+  }
+  .commits .msg { color: var(--gray-700); }
+
+  /* callout */
+  .callout {
+    display: flex; gap: 12px; border: 1.5px solid var(--oat);
+    background: rgba(227,218,204,.4); border-radius: 10px;
+    padding: 14px 16px; margin: 18px 0; font-size: 14px; max-width: 760px;
+  }
+  .callout .ico { color: var(--clay); font-weight: 600; }
+  .callout b { color: var(--slate); }
+
+  /* checklist */
+  ul.check {
+    padding-left: 0; max-width: 760px; list-style: none; margin-top: 8px;
+  }
+  ul.check li {
+    padding: 9px 14px; border-left: 3px solid var(--olive);
+    background: rgba(120,140,93,.07); border-radius: 0 8px 8px 0;
+    margin-bottom: 7px; font-size: 14px;
+  }
+  ul.check li b { color: var(--slate); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <nav class="toc">
+    <div class="label">On this page</div>
+    <a href="#tldr">TL;DR</a>
+    <a href="#shape">Shape of the repo</a>
+    <a href="#flow">How a backtest runs</a>
+    <a href="#api">Public API</a>
+    <a href="#twap">Execution model — TWAP/VWAP</a>
+    <a href="#strategy">Event-style strategies</a>
+    <a href="#data">Data layer</a>
+    <a href="#metrics">PnL & metrics</a>
+    <a href="#findings">Findings</a>
+    <a href="#commits">Recent commits</a>
+    <a href="#checklist">Reviewer checklist</a>
+    <div class="meta">
+      <b>Repo</b>quantframe-lib v0.1.5
+      <br><br>
+      <b>Path</b>~/Documents/quantframe
+      <br><br>
+      <b>Captured</b>2026-05-10
+    </div>
+  </nav>
+
+  <main>
+    <div class="eyebrow">Code review · codebase summary</div>
+    <h1><code>quantframe</code> — a lightweight pandas backtester</h1>
+
+    <div class="tldr" id="tldr">
+      <b>TL;DR</b> &mdash; A small (~2.3k LOC) Python library extracted from the <code>deribit-arb</code>
+      backtest engine. Two entry points: <code>backtest(weights, prices, config)</code> for
+      DataFrame-of-target-weights, and <code>run_strategy(strategy, prices, config)</code> for
+      event-style callbacks. Core abstractions are a <em>price grid</em> and a <em>target grid</em>
+      pivoted on <code>(timestamp × symbol)</code>, fed through a TWAP or VWAP execution model into
+      gross/fee/funding PnL and standard metrics. Pandas + NumPy only; no DB, no async.
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="v">~2.3k</div><div class="k">LOC (src)</div></div>
+      <div class="stat"><div class="v">15</div><div class="k">Modules</div></div>
+      <div class="stat"><div class="v">12</div><div class="k">Test files</div></div>
+      <div class="stat"><div class="v">739</div><div class="k">strategy.py LOC</div></div>
+    </div>
+
+    <h2 id="shape">Shape of the repository</h2>
+    <p>Two top-level packages under <code>src/quantframe</code>: <code>backtest</code> (the engine) and
+      <code>data</code> (provider + price utilities). One leaf module, <code>futures.py</code>, parses
+      Deribit-style expiry codes.</p>
+
+    <div class="tree">
+<span class="dir">src/quantframe/</span>
+├── __init__.py            <span class="note">— empty</span>
+├── <span class="clay">futures.py</span>              <span class="note">— Deribit expiry parsing (109 LOC)</span>
+├── <span class="dir">backtest/</span>
+│   ├── __init__.py        <span class="note">— public re-exports</span>
+│   ├── <span class="clay">engine.py</span>           <span class="note">— backtest() + grid plumbing (164)</span>
+│   ├── <span class="clay">execution.py</span>        <span class="note">— TWAP / VWAP / Immediate (138)</span>
+│   ├── <span class="clay">strategy.py</span>         <span class="note">— event-style runner + context (739)</span>
+│   ├── <span class="clay">types.py</span>            <span class="note">— BacktestConfig, BacktestResult (159)</span>
+│   ├── pnl.py             <span class="note">— calculate_pnl (20)</span>
+│   ├── adjustments.py     <span class="note">— fee_pnl, funding_pnl (82)</span>
+│   ├── metrics.py         <span class="note">— sharpe, APR, drawdown, turnover (70)</span>
+│   └── returns.py         <span class="note">— simple/compound mode helpers (25)</span>
+└── <span class="dir">data/</span>
+    ├── __init__.py        <span class="note">— exposes prices module</span>
+    ├── <span class="clay">base.py</span>             <span class="note">— DataProvider ABC + on-disk cache (415)</span>
+    ├── prices.py          <span class="note">— calendar merge helper (68)</span>
+    └── yfinance.py        <span class="note">— optional Yahoo provider (137)</span>
+    </div>
+
+    <h2 id="flow">How a backtest runs</h2>
+    <p>Both entry points feed a common internal <code>_backtest_from_grid()</code>. The pipeline is
+      mostly stateless transformations on two pivot frames.</p>
+
+    <div class="flow">
+      <svg viewBox="0 0 980 260" xmlns="http://www.w3.org/2000/svg">
+        <!-- inputs -->
+        <rect x="20" y="40" width="150" height="48" rx="8" class="wh" stroke="#D1CFC5" stroke-width="1.5"/>
+        <text x="95" y="62" class="nl" text-anchor="middle">prices DF</text>
+        <text x="95" y="80" class="nb" text-anchor="middle">ts, symbol, OHLCV</text>
+
+        <rect x="20" y="160" width="150" height="48" rx="8" class="wh" stroke="#D1CFC5" stroke-width="1.5"/>
+        <text x="95" y="182" class="nl" text-anchor="middle">weights DF</text>
+        <text x="95" y="200" class="nb" text-anchor="middle">ts, symbol, weight</text>
+
+        <!-- grids -->
+        <rect x="220" y="40" width="160" height="48" rx="8" class="oa" />
+        <text x="300" y="62" class="nl" text-anchor="middle">price_grid</text>
+        <text x="300" y="80" class="nb" text-anchor="middle">pivot ts × symbol</text>
+
+        <rect x="220" y="160" width="160" height="48" rx="8" class="oa"/>
+        <text x="300" y="182" class="nl" text-anchor="middle">target_grid</text>
+        <text x="300" y="200" class="nb" text-anchor="middle">ffill + exec_lag shift</text>
+
+        <!-- execution -->
+        <rect x="430" y="100" width="160" height="58" rx="8" class="cl"/>
+        <text x="510" y="124" class="nl" text-anchor="middle" fill="#FFFFFF">execution model</text>
+        <text x="510" y="144" class="nb" text-anchor="middle" fill="#FAF9F5">TWAP / VWAP ramp</text>
+
+        <!-- positions -->
+        <rect x="640" y="100" width="140" height="58" rx="8" class="ol"/>
+        <text x="710" y="124" class="nl" text-anchor="middle" fill="#FFFFFF">positions</text>
+        <text x="710" y="144" class="nb" text-anchor="middle" fill="#FAF9F5">realized weights</text>
+
+        <!-- pnl -->
+        <rect x="820" y="40" width="140" height="48" rx="8" class="wh" stroke="#D1CFC5" stroke-width="1.5"/>
+        <text x="890" y="62" class="nl" text-anchor="middle">pnl + metrics</text>
+        <text x="890" y="80" class="nb" text-anchor="middle">sharpe, APR, dd</text>
+
+        <rect x="820" y="160" width="140" height="48" rx="8" class="wh" stroke="#D1CFC5" stroke-width="1.5"/>
+        <text x="890" y="182" class="nl" text-anchor="middle">fee + funding</text>
+        <text x="890" y="200" class="nb" text-anchor="middle">adjustments.py</text>
+
+        <!-- arrows -->
+        <path d="M170 64 H 220" class="st" marker-end="url(#a)"/>
+        <path d="M170 184 H 220" class="st" marker-end="url(#a)"/>
+        <path d="M380 78  C 410 90, 410 110, 430 118" class="st" marker-end="url(#a)"/>
+        <path d="M380 188 C 410 170, 410 145, 430 138" class="lc" marker-end="url(#ac)"/>
+        <path d="M590 130 H 640" class="lc" marker-end="url(#ac)"/>
+        <path d="M780 122 C 800 100, 810 80,  820 70"  class="st" marker-end="url(#a)"/>
+        <path d="M780 138 C 800 160, 810 180, 820 184" class="st" marker-end="url(#a)"/>
+
+        <defs>
+          <marker id="a"  viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#87867F"/></marker>
+          <marker id="ac" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#D97757"/></marker>
+        </defs>
+      </svg>
+      <div class="cap">prices + weights → grids → execution → positions → PnL & metrics</div>
+    </div>
+
+    <h2 id="api">Public API</h2>
+    <p>Everything users typically touch is re-exported from <code>quantframe.backtest</code>.</p>
+
+    <div class="filehdr">
+      <span class="badge">re-exports</span>
+      src/quantframe/backtest/__init__.py
+    </div>
+<pre><span class="kw">from</span> quantframe.backtest <span class="kw">import</span> (
+    BacktestConfig, BacktestResult, ReturnMode,
+    Strategy, StrategyContext, TargetWeights,
+    backtest, run_strategy, calculate_metrics,
+)</pre>
+
+    <h3>BacktestConfig</h3>
+    <p>Frozen dataclass; <code>__post_init__</code> validates every field. Note <code>exec_lag</code>
+      defaults to <code>1</code> and <em>must be ≥ 1</em> — same-bar execution is rejected to avoid
+      lookahead bias. <code>from_yaml()</code> rejects unknown keys, so config typos surface early
+      instead of silently using defaults.</p>
+
+    <h2 id="twap">Execution model — TWAP & VWAP</h2>
+    <p>Both share the same shape: detect changepoints, ramp linearly (or by VWAP volume cumsum) over
+      <code>horizon</code> bars, hold until the next changepoint. Implementation is fully vectorized
+      with NumPy after a per-changepoint Python loop.</p>
+
+    <div class="tabs" data-tabs>
+      <div class="tabbar">
+        <button class="on" data-t="0">TWAP — linear ramp</button>
+        <button data-t="1">VWAP — volume-weighted</button>
+      </div>
+<pre class="on"><span class="cm"># execution.py:44 — TWAP changepoint loop</span>
+<span class="kw">for</span> idx, start_row <span class="kw">in</span> <span class="fn">enumerate</span>(changepoints):
+    end_row  = <span class="fn">int</span>(extended_changepoints[idx + 1])
+    goal     = target_values[start_row]
+    start    = current.copy()
+    ramp_len = <span class="fn">min</span>(self.horizon, end_row - start_row)
+    fractions = np.arange(<span class="str">1</span>, ramp_len + <span class="str">1</span>) / self.horizon
+    realized[start_row : start_row + ramp_len] = (
+        start + (goal - start) * fractions[:, <span class="kw">None</span>]
+    )
+    <span class="kw">if</span> start_row + ramp_len &lt; end_row:
+        realized[start_row + ramp_len : end_row] = goal
+    current = realized[end_row - <span class="str">1</span>]</pre>
+<pre><span class="cm"># execution.py:106 — VWAP uses cost prefix sums</span>
+cost_sums = cost_prefix_sums[window_end] - cost_before
+fallback  = cost_sums == <span class="str">0.0</span>          <span class="cm"># empty window → linear fallback</span>
+
+cumulative_cost = (
+    cost_prefix_sums[start_row + <span class="str">1</span> : start_row + ramp_len + <span class="str">1</span>]
+    - cost_before
+)
+fractions = cumulative_cost / cost_sums
+<span class="kw">if</span> fallback.any():
+    fractions[:, fallback] = fallback_fractions[:ramp_len, <span class="kw">None</span>]</pre>
+    </div>
+
+    <h2 id="strategy">Event-style strategies</h2>
+    <p><code>run_strategy()</code> turns user callbacks into the same target grid the
+      DataFrame entry takes — so the engine downstream is identical. The biggest module
+      (<code>strategy.py</code>, 739 LOC) is mostly the runtime context: zero-copy
+      <code>_Accessor</code>/<code>_HistoryView</code> objects backed by NumPy buffers and a
+      cursor, so a strategy's view of history advances by integer index instead of slicing
+      DataFrames per bar.</p>
+
+    <div class="callout">
+      <span class="ico">★</span>
+      <div><b>Why two entry points?</b> Vectorized weights are fastest when you can compute the
+        whole signal up front (e.g. cross-sectional ranks). Event strategies are needed when
+        the signal depends on rolling state, expiries, or front-future selection that changes
+        bar-by-bar.</div>
+    </div>
+
+    <h2 id="data">Data layer</h2>
+    <p><code>DataProvider</code> is an ABC: subclasses implement <code>fetch_bars()</code> and
+      inherit a <code>load_bars()</code> wrapper that adds on-disk caching, tail refresh, and
+      OHLCV normalization. <code>YahooFinanceProvider</code> is the only built-in (optional
+      <code>yfinance</code> extra). <code>prices.merge()</code> aligns multiple symbols onto
+      either intersection or union of trading calendars.</p>
+
+    <h2 id="metrics">PnL & metrics</h2>
+    <p>Total PnL is <code>gross_pnl + fee_pnl + funding_pnl</code>. Cumulative return is either
+      <em>simple</em> (additive) or <em>compound</em> (multiplicative on <code>1 + r</code>).
+      APR, sharpe, max-drawdown, daily turnover, and a <em>filter activation rate</em> diagnostic
+      are computed per backtest. The engine flags <code>degenerate_filter = True</code> when a
+      strategy almost never trades — a useful guardrail against signal bugs that look superficially
+      profitable.</p>
+
+    <h2 id="findings">Findings</h2>
+
+    <div class="find info">
+      <span class="tag">info</span><span class="ttl">Polymorphic <code>backtest()</code> signature</span>
+      <p><code>engine.py</code> accepts <code>BacktestConfig</code> in either the third positional
+        slot (treated as funding) or the <code>config=</code> keyword. The dispatch is handled by an
+        <code>isinstance</code> check. Works, but a single explicit <code>config</code> kwarg would
+        be less surprising.</p>
+      <div class="where">src/quantframe/backtest/engine.py:13–24</div>
+    </div>
+
+    <div class="find nit">
+      <span class="tag">nit</span><span class="ttl">Strategy module is doing a lot</span>
+      <p><code>strategy.py</code> is 739 LOC — about a third of the codebase — and houses the
+        accessor, history view, funding tracker, the runtime, and OHLCV fallback logic. Splitting
+        the runtime context into its own module would make the public <code>Strategy</code>
+        protocol easier to find.</p>
+      <div class="where">src/quantframe/backtest/strategy.py</div>
+    </div>
+
+    <div class="find concern">
+      <span class="tag">concern</span><span class="ttl">Cross-package private imports</span>
+      <p><code>strategy.py</code> imports the underscore-prefixed
+        <code>_backtest_from_grid</code>, <code>_normalize_timestamp_column</code>, and
+        <code>_price_grid</code> from <code>engine.py</code>. Because both are part of the
+        same package this is benign, but it couples two modules through their internals — a
+        small <em>backtest/_grid.py</em> with these helpers would let either entry point depend
+        on a stable surface.</p>
+      <div class="where">src/quantframe/backtest/strategy.py:12–16</div>
+    </div>
+
+    <div class="find concern">
+      <span class="tag">concern</span><span class="ttl">Funding column auto-detection silently defaults</span>
+      <p><code>_funding_value_column()</code> picks <code>interest_1h</code> when neither
+        <code>interest_1h</code> nor <code>interest_8h</code> is present, instead of raising. A
+        downstream <code>KeyError</code> is the user's first signal — explicit
+        <code>ValueError</code> with the available columns would fail faster.</p>
+      <div class="where">src/quantframe/backtest/adjustments.py:77–82</div>
+    </div>
+
+    <div class="find info">
+      <span class="tag">info</span><span class="ttl">Compound APR returns NaN on ruin</span>
+      <p>In <code>metrics.py:_annualized_return</code>, <code>final_equity &lt; 0</code> returns
+        <code>math.nan</code>. Reasonable for a "you blew up" signal, but worth a docstring note
+        — Sharpe and max-drawdown remain finite, so a NaN APR alongside a real Sharpe can
+        confuse downstream consumers.</p>
+      <div class="where">src/quantframe/backtest/metrics.py:64–70</div>
+    </div>
+
+    <div class="find nit">
+      <span class="tag">nit</span><span class="ttl"><code>periods_per_year</code> default is minute-bar-shaped</span>
+      <p>Default <code>365 * 24 * 60</code> assumes 1-minute crypto data. Daily users must remember
+        to override; otherwise sharpe is annualized incorrectly. Consider auto-deriving from the
+        median bar interval (the <code>plot()</code> helper already does this for the rolling
+        turnover window).</p>
+      <div class="where">src/quantframe/backtest/types.py:26</div>
+    </div>
+
+    <h2 id="commits">Recent commits</h2>
+    <div class="commits">
+      <div class="row"><span class="sha">6855d09</span><span class="msg">Add OHLCV fallbacks to <code>run_strategy</code></span></div>
+      <div class="row"><span class="sha">6723bfe</span><span class="msg">Add configurable return compounding</span></div>
+      <div class="row"><span class="sha">281fc7e</span><span class="msg">Bump version to 0.1.3</span></div>
+      <div class="row"><span class="sha">42661c5</span><span class="msg">Add price calendar merge helper</span></div>
+      <div class="row"><span class="sha">d0610c1</span><span class="msg">Fix cache coverage start metadata</span></div>
+      <div class="row"><span class="sha">0ac4a1e</span><span class="msg">Allow strategy metadata inference</span></div>
+      <div class="row"><span class="sha">4f66572</span><span class="msg">Cap pandas dependency below 3</span></div>
+      <div class="row"><span class="sha">99dba96</span><span class="msg">Rename PyPI distribution to <code>quantframe-lib</code></span></div>
+      <div class="row"><span class="sha">f384df7</span><span class="msg">Normalize bar timestamps to nanoseconds</span></div>
+      <div class="row"><span class="sha">ed77350</span><span class="msg">Add market data loading utilities</span></div>
+    </div>
+    <p style="font-size:13px; color:var(--gray-500); margin-top:8px;">Recent themes: data-loading
+      polish, return-mode flexibility, and small correctness fixes (timestamp normalization, cache
+      metadata, pandas pin).</p>
+
+    <h2 id="checklist">Reviewer checklist</h2>
+    <ul class="check">
+      <li><b>Lookahead.</b> <code>exec_lag &gt;= 1</code> is enforced — confirm none of your
+        strategy callbacks read <code>bar.close</code> at the bar they submit on.</li>
+      <li><b>Symbol coverage.</b> <code>_target_grid</code> raises on weights with symbols not
+        present in <code>prices</code> — a useful early failure when wiring new instruments.</li>
+      <li><b>Funding sign.</b> <code>funding_pnl</code> is <code>-(positions × funding)</code>;
+        positive funding rate ⇒ longs pay. Sanity-check on a known regime.</li>
+      <li><b>Periods-per-year.</b> Default is minute-bar; override for daily/hourly data or
+        sharpe will be off by √(bars-per-year).</li>
+      <li><b>Filter activation.</b> Inspect <code>metrics["filter_activation_rate"]</code> and
+        the <code>degenerate_filter</code> flag before celebrating a backtest.</li>
+      <li><b>Cache directory.</b> <code>DataProvider.load_bars(cache=True)</code> writes to a
+        per-provider directory; check it isn't in <code>.gitignore</code> blind spots.</li>
+    </ul>
+  </main>
+
+</div>
+
+<script>
+document.querySelectorAll("[data-tabs]").forEach(box => {
+  const btns = box.querySelectorAll("button");
+  const panes = box.querySelectorAll("pre");
+  btns.forEach(b => b.addEventListener("click", () => {
+    btns.forEach(x => x.classList.remove("on"));
+    panes.forEach(x => x.classList.remove("on"));
+    b.classList.add("on");
+    panes[+b.dataset.t].classList.add("on");
+  }));
+});
+</script>
+</body>
+</html>

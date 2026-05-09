@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build, then align — Zach Lloyd</title>
+<style>
+  :root {
+    --ivory:   #FAF9F5;
+    --slate:   #141413;
+    --clay:    #D97757;
+    --clay-d:  #B85C3E;
+    --oat:     #E3DACC;
+    --olive:   #788C5D;
+    --rust:    #B04A3F;
+    --warning: #C78E3F;
+    --gray-100:#F0EEE6;
+    --gray-150:#F0EEE6;
+    --gray-300:#D1CFC5;
+    --gray-500:#87867F;
+    --gray-700:#3D3D3A;
+    --serif: ui-serif, Georgia, "Times New Roman", serif;
+    --sans:  system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono:  ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--ivory);
+    color: var(--gray-700);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    padding: 56px 24px 120px;
+  }
+  .page {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 56px;
+  }
+  @media (max-width: 920px) { .page { grid-template-columns: 1fr; } nav.toc { display: none; } }
+
+  /* ── nav ──────────────────────────────── */
+  nav.toc {
+    position: sticky;
+    top: 32px;
+    align-self: start;
+    font-size: 13px;
+  }
+  nav.toc .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    margin-bottom: 12px;
+  }
+  nav.toc a {
+    display: block;
+    padding: 5px 0 5px 12px;
+    border-left: 2px solid var(--gray-300);
+    color: var(--gray-700);
+    text-decoration: none;
+    transition: border-color 120ms ease, color 120ms ease;
+  }
+  nav.toc a:hover { color: var(--slate); border-color: var(--slate); }
+  nav.toc .meta {
+    margin-top: 28px;
+    border-top: 1px solid var(--gray-300);
+    padding-top: 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gray-500);
+    line-height: 1.7;
+  }
+  nav.toc .meta b { color: var(--gray-700); font-weight: 500; display: block; }
+
+  /* ── header ───────────────────────────── */
+  header { margin-bottom: 8px; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(34px, 4.6vw, 46px);
+    color: var(--slate);
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+  .byline {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin-bottom: 24px;
+  }
+  .byline b { color: var(--slate); font-weight: 500; }
+  .byline .repost {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--olive);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-right: 10px;
+  }
+
+  .tldr {
+    border: 1.5px solid var(--gray-300);
+    border-left: 3px solid var(--clay);
+    border-radius: 12px;
+    background: #fff;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    max-width: 760px;
+  }
+  .tldr b { color: var(--clay); font-weight: 600; }
+
+  h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 25px;
+    color: var(--slate);
+    margin: 56px 0 14px;
+    scroll-margin-top: 24px;
+    letter-spacing: -0.005em;
+  }
+  h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--slate);
+    margin: 22px 0 8px;
+  }
+  p { margin-bottom: 12px; max-width: 700px; }
+  code { font-family: var(--mono); font-size: 13px;
+         background: var(--gray-100); padding: 1px 6px; border-radius: 4px; color: var(--slate); }
+  em { color: var(--slate); font-style: italic; }
+
+  /* ── pull quote ── */
+  .pull {
+    border-left: 3px solid var(--olive);
+    padding: 4px 0 4px 20px;
+    margin: 22px 0;
+    font-family: var(--serif);
+    font-size: 21px;
+    line-height: 1.4;
+    color: var(--slate);
+    max-width: 720px;
+  }
+  .pull cite {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray-500);
+    font-style: normal;
+    margin-top: 12px;
+  }
+
+  /* ── then-vs-now ── */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin: 14px 0 4px;
+  }
+  @media (max-width: 720px) { .compare { grid-template-columns: 1fr; } }
+  .col {
+    border: 1.5px solid var(--gray-300);
+    border-radius: 14px;
+    background: #fff;
+    padding: 18px 20px;
+  }
+  .col.then { border-left: 3px solid var(--gray-500); }
+  .col.now  { border-left: 3px solid var(--clay); }
+  .col .tag {
+    display: inline-flex; align-items: center; height: 22px; padding: 0 10px;
+    border-radius: 999px; font: 500 11px/1 var(--mono);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+  .col.then .tag { background: var(--gray-100); color: var(--gray-700); }
+  .col.now  .tag { background: rgba(217,119,87,.14); color: var(--clay); }
+  .col h3 { margin-top: 0; }
+  .col ul { padding-left: 18px; font-size: 14px; }
+  .col li { margin-bottom: 6px; }
+
+  /* ── process steps ── */
+  .process {
+    margin: 18px 0 4px;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 36px 1fr auto;
+    gap: 14px;
+    align-items: baseline;
+    padding: 12px 16px;
+    border: 1.5px solid var(--gray-300);
+    border-radius: 10px;
+    background: #fff;
+    margin-bottom: 8px;
+    transition: border-color 150ms ease, transform 150ms ease;
+  }
+  .step:hover { border-color: var(--slate); transform: translateY(-1px); }
+  .step .n {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--gray-500);
+  }
+  .step .t {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--slate);
+  }
+  .step .lab {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+  .lab.bottle  { background: rgba(176,74,63,.12);  color: var(--rust); }
+  .lab.gone    { background: rgba(120,140,93,.16); color: var(--olive); }
+  .lab.move    { background: rgba(217,119,87,.14); color: var(--clay); }
+  .lab.keep    { background: var(--gray-100);      color: var(--gray-700); }
+  .step.moved {
+    border-style: dashed;
+    background: rgba(217,119,87,.04);
+  }
+  .step.moved .t::before {
+    content: "↓ moves to after build  ·  ";
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--clay);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-right: 6px;
+  }
+
+  /* ── flow diagram ── */
+  .flow {
+    border: 1.5px solid var(--gray-300);
+    border-radius: 14px;
+    background: #fff;
+    padding: 24px 20px 18px;
+    margin: 18px 0 6px;
+  }
+  .flow svg { width: 100%; height: auto; max-width: 100%; display: block; }
+  .flow .cap {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray-500);
+    text-align: center;
+    margin-top: 10px;
+  }
+  .st { fill: none; stroke: var(--gray-500); stroke-width: 2; stroke-linecap: round; }
+  .lc { fill: none; stroke: var(--clay);     stroke-width: 2.2; stroke-linecap: round; }
+  .da { stroke-dasharray: 4 4; }
+  .ol { fill: var(--olive); }
+  .cl { fill: var(--clay); }
+  .oa { fill: var(--oat); }
+  .gl { fill: var(--gray-300); }
+  .sl { fill: var(--slate); }
+  .nb { font-family: var(--mono); font-size: 10.5px; fill: var(--gray-500);
+        text-transform: uppercase; letter-spacing: 0.08em; }
+  .nl { font-family: var(--serif); font-size: 13px; fill: var(--slate); }
+
+  /* ── reasons grid ── */
+  .reasons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin: 14px 0 4px;
+  }
+  @media (max-width: 720px) { .reasons { grid-template-columns: 1fr; } }
+  .reason {
+    border: 1.5px solid var(--gray-300);
+    border-radius: 12px;
+    padding: 16px 18px;
+    background: #fff;
+  }
+  .reason .num {
+    font-family: var(--serif);
+    font-size: 28px;
+    color: var(--clay);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .reason h4 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--slate);
+    margin-bottom: 6px;
+  }
+  .reason p { font-size: 14px; margin: 0; }
+
+  /* ── callout ── */
+  .callout {
+    display: flex;
+    gap: 12px;
+    border: 1.5px solid var(--oat);
+    background: rgba(227,218,204,0.4);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 18px 0;
+    font-size: 14px;
+    max-width: 760px;
+  }
+  .callout .ico { color: var(--clay); font-weight: 600; }
+  .callout b { color: var(--slate); }
+
+  /* ── gotchas ── */
+  ul.takeaways { padding-left: 0; max-width: 720px; list-style: none; }
+  ul.takeaways li {
+    padding: 10px 14px;
+    border-left: 3px solid var(--clay);
+    background: rgba(217,119,87,0.05);
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  ul.takeaways li b { color: var(--slate); }
+
+  /* ── case ── */
+  .case {
+    border: 1.5px solid var(--gray-300);
+    border-radius: 12px;
+    padding: 16px 18px;
+    background: #fff;
+    margin: 14px 0;
+    max-width: 760px;
+  }
+  .case .hd {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+  .case h4 { font-family: var(--serif); font-weight: 500; font-size: 17px;
+             color: var(--slate); margin-bottom: 6px; }
+  .case p { font-size: 14px; margin: 0; }
+
+  /* ── source ── */
+  .source {
+    margin-top: 56px;
+    padding-top: 16px;
+    border-top: 1px solid var(--gray-300);
+    font-size: 13px;
+    color: var(--gray-500);
+    max-width: 760px;
+  }
+  .source a { color: var(--gray-700); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── side nav ── -->
+  <nav class="toc">
+    <div class="label">On this page</div>
+    <a href="#tldr">TL;DR</a>
+    <a href="#thesis">The thesis</a>
+    <a href="#why">Why teams aligned first</a>
+    <a href="#shift">What changed</a>
+    <a href="#process">The new process</a>
+    <a href="#warp">Warp's case</a>
+    <a href="#takeaways">Takeaways</a>
+    <a href="#source">Source</a>
+
+    <div class="meta">
+      <b>Author</b>
+      Zach Lloyd · @zachlloydtweets
+      <br><br>
+      <b>Reposted by</b>
+      Zara Zhang
+      <br><br>
+      <b>Captured</b>
+      2026-05-10
+    </div>
+  </nav>
+
+  <!-- ── main ── -->
+  <main>
+    <header>
+      <div class="eyebrow">Report · Product process · Essay summary</div>
+      <h1>Build, then align</h1>
+      <div class="byline">
+        <span class="repost">↻ Reposted by Zara Zhang</span>
+        <b>Zach Lloyd</b> · CEO, Warp · <span style="font-family:var(--mono);">@zachlloydtweets</span>
+      </div>
+      <div class="tldr" id="tldr">
+        <b>TL;DR</b> &mdash; In a pre-agent world, alignment had to come <em>before</em> code because coding
+        was the most expensive step. Now that agents collapse the cost of building, the cheapest path to
+        alignment is a working artifact. Build a testable version first, then align around what people
+        actually experience &mdash; not around mockups everyone is interpreting differently.
+      </div>
+    </header>
+
+    <h2 id="thesis">The thesis</h2>
+    <p>If you're spending a lot of time in meetings, docs, and Slack threads <em>before</em> writing code,
+      you're operating on outdated assumptions about what's expensive. The economics of product
+      development have shifted: shipping a tangible thing is now often cheaper than negotiating a shared
+      mental model of one.</p>
+
+    <div class="pull">
+      "Alignment should come after we have solutions in-hand."
+      <cite>— Zach Lloyd</cite>
+    </div>
+
+    <p>Note: by <em>alignment</em> Lloyd means humans aligning with each other on how a product should
+      work &mdash; not humans aligning with agents on how to build. Human/agent alignment (his "Spec and
+      Verify" framing) is a separate, complementary discipline.</p>
+
+    <h2 id="why">Why teams aligned up-front in the first place</h2>
+    <p>Pre-agent, the alignment ritual existed for two specific reasons. Both reasons still exist &mdash;
+      what's changed is which intervention solves them most cheaply.</p>
+
+    <div class="reasons">
+      <div class="reason">
+        <div class="num">01</div>
+        <h4>Build the right thing on the first try</h4>
+        <p>Coding was the long pole. A wrong guess meant weeks of rework, so up-front debate was a
+          rational hedge against expensive mistakes.</p>
+      </div>
+      <div class="reason">
+        <div class="num">02</div>
+        <h4>Avoid stakeholder surprise</h4>
+        <p>"I thought we were building X, but you built Y." These divergences blow up timelines and trust
+          &mdash; and pre-build alignment was the only cheap way to surface them.</p>
+      </div>
+    </div>
+
+    <h2 id="shift">What changed: the cost curve flipped</h2>
+    <p>Coding has stopped being the dominant cost. When the build step is cheap, the rational move is to
+      stop optimizing the step <em>before</em> it &mdash; alignment &mdash; and start using build itself
+      as the alignment tool.</p>
+
+    <div class="flow">
+      <svg viewBox="0 0 880 220" xmlns="http://www.w3.org/2000/svg" role="img"
+           aria-label="Cost curve: alignment vs coding, before agents and now">
+        <!-- axes -->
+        <line x1="60"  y1="180" x2="820" y2="180" class="st"/>
+        <line x1="60"  y1="30"  x2="60"  y2="180" class="st"/>
+        <text x="62" y="22" class="nb">Cost</text>
+        <text x="800" y="200" class="nb" text-anchor="end">Step</text>
+
+        <!-- before agents -->
+        <g>
+          <text x="170" y="22" class="nb" text-anchor="middle">Before agents</text>
+          <!-- alignment bar (small) -->
+          <rect x="100" y="140" width="60" height="40" class="gl"/>
+          <text x="130" y="200" class="nb" text-anchor="middle">Align</text>
+          <!-- code bar (huge) -->
+          <rect x="180" y="50"  width="60" height="130" class="sl"/>
+          <text x="210" y="200" class="nb" text-anchor="middle">Code</text>
+          <!-- iterate bar -->
+          <rect x="260" y="120" width="60" height="60" class="gl"/>
+          <text x="290" y="200" class="nb" text-anchor="middle">Iterate</text>
+          <text x="210" y="44" class="nl" text-anchor="middle">coding dominates</text>
+        </g>
+
+        <!-- divider -->
+        <line x1="430" y1="30" x2="430" y2="200" class="st da"/>
+
+        <!-- now -->
+        <g>
+          <text x="630" y="22" class="nb" text-anchor="middle">Now</text>
+          <!-- align bar (still some, but less critical first) -->
+          <rect x="510" y="155" width="60" height="25" class="gl"/>
+          <text x="540" y="200" class="nb" text-anchor="middle">Align</text>
+          <!-- build bar (small, clay) -->
+          <rect x="590" y="140" width="60" height="40" class="cl"/>
+          <text x="620" y="200" class="nb" text-anchor="middle">Build</text>
+          <!-- iterate bar (now the big one) -->
+          <rect x="670" y="80"  width="60" height="100" class="oa"/>
+          <text x="700" y="200" class="nb" text-anchor="middle">Iterate</text>
+          <text x="620" y="44" class="nl" text-anchor="middle">build is cheap; iteration is the work</text>
+
+          <!-- arrow showing alignment moves later -->
+          <path d="M 545 165 C 580 175, 660 175, 695 130" class="lc da" marker-end="url(#ar)"/>
+          <text x="620" y="60" class="nb" text-anchor="middle" fill="#D97757">align around the artifact →</text>
+        </g>
+
+        <defs>
+          <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#D97757"/>
+          </marker>
+        </defs>
+      </svg>
+      <div class="cap">Coding was the bottleneck → now iteration is the bottleneck</div>
+    </div>
+
+    <p>Once a thing is built, the team is no longer guessing &mdash; they're <em>experimenting on the
+      same artifact</em>. That's the key shift. Pre-build alignment is N stakeholders each imagining a
+      slightly different implementation of a mock; post-build alignment is N stakeholders touching the
+      same thing.</p>
+
+    <h2 id="process">The new design process</h2>
+    <p>Lloyd's old process at Warp had nine steps. Most stand. The change is structural: <b>step 4
+      (align on the best solution) moves to <em>after</em> step 6 (review the built thing).</b></p>
+
+    <div class="process">
+      <div class="step">
+        <div class="n">01</div>
+        <div class="t">Clearly state the problem and user goals</div>
+        <div class="lab keep">Keep · pre-build</div>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <div class="t">Explore the solution space (product jam)</div>
+        <div class="lab keep">Keep · pre-build</div>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <div class="t">Mock up different possible solutions</div>
+        <div class="lab keep">Keep · best-guess only</div>
+      </div>
+      <div class="step moved">
+        <div class="n">04</div>
+        <div class="t">Align on what we think is the best solution</div>
+        <div class="lab move">Move later</div>
+      </div>
+      <div class="step">
+        <div class="n">05</div>
+        <div class="t">Code the solution</div>
+        <div class="lab gone">Coding bottleneck — going away</div>
+      </div>
+      <div class="step">
+        <div class="n">06</div>
+        <div class="t">Review code & product against the spec</div>
+        <div class="lab keep">Keep</div>
+      </div>
+      <div class="step">
+        <div class="n">07</div>
+        <div class="t">Dogfood and refine internally</div>
+        <div class="lab keep">Keep · now where alignment happens</div>
+      </div>
+      <div class="step">
+        <div class="n">08</div>
+        <div class="t">Bug bash and ensure quality</div>
+        <div class="lab keep">Keep</div>
+      </div>
+      <div class="step">
+        <div class="n">09</div>
+        <div class="t">Ship, monitor, adjust on user feedback</div>
+        <div class="lab keep">Keep</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="ico">★</span>
+      <div><b>The change isn't "skip alignment."</b> It's "stop bikeshedding solutions before they exist."
+        You still do problem framing, the product jam, and a best-guess design. You just don't spend
+        cycles debating which mock is ideal &mdash; you build a few, try them, then align.</div>
+    </div>
+
+    <h2 id="warp">Warp's case studies</h2>
+
+    <div class="case">
+      <div class="hd">2023 · Warp Drive · what not to do</div>
+      <h4>Countless hours debating mocks, Slack, PRDs &mdash; before any code</h4>
+      <p>Warp's collaborative platform was specced exhaustively up-front. Lloyd's retrospective:
+        "I would not do this again." The pre-build debate didn't produce a better product; it produced
+        a more expensive process.</p>
+    </div>
+
+    <div class="case">
+      <div class="hd">Recent · Coding-agent suite · what to do</div>
+      <h4>Align on the problem, ship best-guess designs, iterate together</h4>
+      <p>Team aligned on the problem ("make Warp the best place to build with any coding agent"), did
+        not bikeshed solutions, let designers cook starting designs, and built. Alignment emerged
+        through iteration on the real artifact. By launch, the team agreed the solution was strong
+        &mdash; without a pre-build alignment marathon.</p>
+    </div>
+
+    <h2 id="takeaways">Takeaways for your own org</h2>
+    <ul class="takeaways">
+      <li><b>Audit your pre-build process.</b> If alignment-before-code is eating more time than
+        alignment-after-code, the cost model is inverted for the new economics.</li>
+      <li><b>Keep problem framing; cut solution debate.</b> Lock the user problem and goals up-front.
+        Don't lock the solution shape &mdash; that's what the build will reveal.</li>
+      <li><b>Build several versions when in doubt.</b> Multiple cheap builds beat one expensive
+        consensus-driven build, because the team experiments on artifacts instead of imaginations.</li>
+      <li><b>Get it in front of users early.</b> If users can touch it, do that. The cheapest
+        alignment in the world is a user reaction.</li>
+      <li><b>Don't conflate this with human/agent alignment.</b> Speccing for an agent (clear
+        contracts, verification) is still essential. The shift is in <em>human-to-human</em>
+        alignment about <em>which</em> solution to build.</li>
+    </ul>
+
+    <p style="margin-top:18px;"><em>"This is also a lot more fun."</em> &mdash; the closing line is worth
+      taking seriously: process changes that make work faster <em>and</em> more enjoyable tend to stick;
+      ones that only make it faster don't.</p>
+
+    <div class="source" id="source">
+      <b style="color:var(--gray-700);">Source.</b> Essay by Zach Lloyd (<span style="font-family:var(--mono);">@zachlloydtweets</span>),
+      reposted by Zara Zhang. Summary captured 2026-05-10. Quoted phrases are direct excerpts; structural
+      labels (e.g. "bottleneck", "going away") are the author's own.
+    </div>
+  </main>
+
+</div>
+</body>
+</html>
