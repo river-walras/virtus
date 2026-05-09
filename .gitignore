@@ -47,3 +47,7 @@ dist/
 *.log
 tmp/
 temp/
+
+.claude/
+.agents/
+skills-lock.json

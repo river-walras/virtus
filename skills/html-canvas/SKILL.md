@@ -1,6 +1,8 @@
 ---
 name: html-canvas
 description: Generate a rich, self-contained HTML artifact for specs, code reviews, designs, reports, or custom editors. Use when the user asks for an "HTML file/artifact/explainer/report/playground", wants a shareable visual deliverable instead of markdown, or asks to "make a canvas/dashboard/diagram-heavy doc". Trigger phrases include "make an HTML", "html artifact", "html canvas", "html report", "html explainer", "html playground", "visual spec", "html mockup".
+arguments: [mode, topic, output_path]
+argument-hint: "[spec|code-review|design|report|editor] [topic] [output_path]"
 ---
 
 # html-canvas
@@ -21,25 +23,47 @@ If the user asks for something HTML-shaped that doesn't clearly map to one of th
 
 ## Parameters
 
-**Required:**
-- `mode` — one of `spec` | `code-review` | `design` | `report` | `editor`.
-- `topic` — what the artifact is about (free text).
-- `output_path` — absolute path to write the HTML file. Default `./<slug>.html` if omitted.
+### Positional (declared in `arguments`)
 
-**Optional:**
+These can be passed as slash-command args (`/html-canvas $mode $topic $output_path`) or extracted from natural language. They map to `$mode`, `$topic`, `$output_path` in this skill's logic, with `$ARGUMENTS` holding the full raw string.
+
+- `$mode` (required) — one of `spec` | `code-review` | `design` | `report` | `editor`.
+- `$topic` (required) — what the artifact is about (free text). Quote it if it contains spaces: `/html-canvas report "rate limiter explainer"`.
+- `$output_path` (optional) — absolute path to write the HTML file. Default `./<slug>.html` derived from `$topic` if omitted.
+
+### Additional (free-form, ask if missing)
+
+These aren't positional — extract them from the user's message or ask:
+
 - `sources` — list of files, directories, URLs, or MCP queries to ingest as context. For `code-review`, also pull `git diff` / `git log` automatically.
 - `design_reference` — path to an existing HTML file whose visual style should be matched.
 - `interactive` — boolean. When true, include knobs/sliders/forms plus a "Copy as prompt/JSON/markdown" export button so changes flow back to Claude Code. Defaults to true for `design` and `editor`, false otherwise.
-- `open_after` — boolean. When true, run `open <path>` after writing.
+- `open_after` — boolean. When true, run `open <output_path>` after writing.
+
+### Invocation examples
+
+```
+/html-canvas report "rate limiter explainer" ~/Desktop/limiter.html
+/html-canvas spec "onboarding 6 variants" ./onboarding.html
+/html-canvas editor package.json ./deps.html
+```
+
+Natural-language form also works — the skill is triggered by the description's phrases and the parameters are inferred from the message:
+
+```
+make an html canvas report on the last 50 commits, write it to ~/Desktop/git.html and open it
+```
 
 ## Workflow
 
-1. **Resolve mode.** If missing or ambiguous, ask the user before doing anything else.
-2. **Ingest sources.** Read files, fetch URLs (WebFetch), run MCP queries as specified. For `code-review`, also gather `git diff` and recent `git log`.
-3. **Load design.** If `design_reference` is given, read it and extract palette, typography, spacing, component styles. Otherwise use `references/design-defaults.md`.
-4. **Load mode checklist.** Read `references/modes.md` for the chosen mode and follow its must-haves and visual patterns.
-5. **Generate.** Write a single self-contained HTML file to `output_path`. Inline all CSS and JS; no build step. CDN libs (D3, Mermaid, Highlight.js) are allowed when they meaningfully improve the result, but the file must still degrade gracefully offline.
-6. **Open.** If `open_after`, run `open <output_path>`.
+1. **Resolve `$mode`.** If missing or not one of the five values, ask the user before doing anything else. (Slash invocation: `$0` / `$mode`.)
+2. **Resolve `$topic`.** If missing, ask. (Slash invocation: `$1` / `$topic`.)
+3. **Resolve `$output_path`.** If missing, derive a slug from `$topic` and write to `./<slug>.html`. (Slash invocation: `$2` / `$output_path`.)
+4. **Ingest sources.** Read files, fetch URLs (WebFetch), run MCP queries as specified. For `mode=code-review`, also gather `git diff` and recent `git log`.
+5. **Load design.** If `design_reference` is given, read it and extract palette, typography, spacing, component styles. Otherwise use `references/design-defaults.md`.
+6. **Load mode checklist.** Read `references/modes.md` for the chosen mode and follow its must-haves and visual patterns.
+7. **Generate.** Write a single self-contained HTML file to `$output_path`. Inline all CSS and JS; no build step. CDN libs (D3, Mermaid, Highlight.js) are allowed when they meaningfully improve the result, but the file must still degrade gracefully offline.
+8. **Open.** If `open_after`, run `open $output_path`.
 
 ## Constraints
 
