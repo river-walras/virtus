@@ -60,10 +60,11 @@ make an html canvas report on the last 50 commits, write it to ~/Desktop/git.htm
 2. **Resolve `$topic`.** If missing, ask. (Slash invocation: `$1` / `$topic`.)
 3. **Resolve `$output_path`.** If missing, derive a slug from `$topic` and write to `./<slug>.html`. (Slash invocation: `$2` / `$output_path`.)
 4. **Ingest sources.** Read files, fetch URLs (WebFetch), run MCP queries as specified. For `mode=code-review`, also gather `git diff` and recent `git log`.
-5. **Load design.** If `design_reference` is given, read it and extract palette, typography, spacing, component styles. Otherwise use `references/design-defaults.md`.
+5. **Load design.** If `design_reference` is given, read it and extract palette, typography, spacing, component styles. Otherwise use `references/design-defaults.md` (the warm earth-tone editorial style).
 6. **Load mode checklist.** Read `references/modes.md` for the chosen mode and follow its must-haves and visual patterns.
-7. **Generate.** Write a single self-contained HTML file to `$output_path`. Inline all CSS and JS; no build step. CDN libs (D3, Mermaid, Highlight.js) are allowed when they meaningfully improve the result, but the file must still degrade gracefully offline.
-8. **Open.** If `open_after`, run `open $output_path`.
+7. **Read canonical example(s).** From `references/examples/`, read at least one example file matching the chosen mode (each mode in `modes.md` lists 3–7 examples). These are ground-truth for layout, class names, SVG patterns, and JS idioms — match them before improvising.
+8. **Generate.** Write a single self-contained HTML file to `$output_path`. Inline all CSS and JS; no build step. CDN libs (D3, Mermaid, Highlight.js) are allowed when they meaningfully improve the result, but the file must still degrade gracefully offline.
+9. **Open.** If `open_after`, run `open $output_path`.
 
 ## Constraints
 
@@ -76,5 +77,6 @@ make an html canvas report on the last 50 commits, write it to ~/Desktop/git.htm
 
 ## References
 
-- `references/modes.md` — per-mode must-haves, visual patterns, example prompts.
-- `references/design-defaults.md` — baseline palette, typography, and component styles when no `design_reference` is provided.
+- `references/modes.md` — per-mode must-haves, visual patterns, example prompts, and pointers to canonical example files.
+- `references/design-defaults.md` — default visual identity (warm earth-tone editorial style: clay/olive/slate/oat palette, serif headings + system sans, 1.5px borders, 12–14px radius, soft hover shadows). Used unless `design_reference` overrides.
+- `references/examples/*.html` — 20 canonical example artifacts covering all 5 modes. Read the matching mode's examples before generating.

@@ -1,10 +1,17 @@
 # Mode checklists
 
-One section per mode. Each lists must-haves, recommended visual patterns, and an example prompt drawn from Thariq's article.
+One section per mode. Each lists must-haves, recommended visual patterns, canonical example files (read at least one before generating), and an example prompt drawn from Thariq's article.
+
+All examples live in `references/examples/`. Read them with the Read tool — they are the ground truth for the visual style.
 
 ---
 
 ## `spec` — Specs, planning, exploration
+
+**Canonical examples to read before generating:**
+- `references/examples/01-exploration-code-approaches.html` — 3-col approach comparison
+- `references/examples/02-exploration-visual-designs.html` — visual variant grid
+- `references/examples/16-implementation-plan.html` — full implementation plan layout
 
 **Purpose:** Help the user think through a problem with a rich canvas: option comparisons, mockups, data-flow diagrams, code snippets, and an implementation plan.
 
@@ -26,6 +33,11 @@ One section per mode. Each lists must-haves, recommended visual patterns, and an
 ---
 
 ## `code-review` — PR walkthroughs and code understanding
+
+**Canonical examples to read before generating:**
+- `references/examples/03-code-review-pr.html` — full PR review with risk map
+- `references/examples/04-code-understanding.html` — explainer for unfamiliar code
+- `references/examples/17-pr-writeup.html` — PR description companion
 
 **Purpose:** Make a diff or code area legible to a reviewer who doesn't have the same context as the author.
 
@@ -49,6 +61,12 @@ One section per mode. Each lists must-haves, recommended visual patterns, and an
 
 ## `design` — Designs and prototypes
 
+**Canonical examples to read before generating:**
+- `references/examples/05-design-system.html` — token swatches, type scale, spacing ruler
+- `references/examples/06-component-variants.html` — side-by-side component variants
+- `references/examples/07-prototype-animation.html` — animation tuning with sliders
+- `references/examples/08-prototype-interaction.html` — interaction prototype
+
 **Purpose:** Sketch visual designs, prototype interactions, or tune component parameters live.
 
 **Must-haves:**
@@ -69,6 +87,15 @@ One section per mode. Each lists must-haves, recommended visual patterns, and an
 ---
 
 ## `report` — Reports, research, learning
+
+**Canonical examples to read before generating:**
+- `references/examples/09-slide-deck.html` — scroll-snap fullscreen slides
+- `references/examples/10-svg-illustrations.html` — inline SVG diagram patterns
+- `references/examples/11-status-report.html` — status / weekly report layout
+- `references/examples/12-incident-report.html` — incident postmortem
+- `references/examples/13-flowchart-diagram.html` — flowchart-heavy explainer
+- `references/examples/14-research-feature-explainer.html` — feature deep-dive with sticky sidebar
+- `references/examples/15-research-concept-explainer.html` — concept explainer with tabbed code samples
 
 **Purpose:** Synthesize information from multiple sources into something readable in one sitting.
 
@@ -92,6 +119,11 @@ One section per mode. Each lists must-haves, recommended visual patterns, and an
 ---
 
 ## `editor` — Custom throwaway editing interfaces
+
+**Canonical examples to read before generating:**
+- `references/examples/18-editor-triage-board.html` — kanban triage with drag + copy-as-markdown
+- `references/examples/19-editor-feature-flags.html` — form-based config editor with dependency warnings
+- `references/examples/20-editor-prompt-tuner.html` — side-by-side prompt editor with live preview
 
 **Purpose:** A purpose-built UI for one specific piece of data the user wants to manipulate. Not a product — a tool for this one task.
 
