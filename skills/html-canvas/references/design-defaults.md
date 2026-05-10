@@ -226,7 +226,7 @@ Rules:
 - ❌ No build step. Single `.html` file with inline `<style>` and `<script>`.
 - ❌ No JS animation libraries (GSAP, anime.js). Pure CSS transitions.
 - ❌ No neumorphism, no glassmorphism (`backdrop-filter`), no heavy `filter: drop-shadow`.
-- ❌ No `prefers-color-scheme` dark mode. Inversion is done with `.invert` on specific sections (slate bg + ivory text).
+- ❌ No automatic `prefers-color-scheme` dark mode by default. Use `.invert` on specific sections (slate bg + ivory text); only add system dark mode if the user explicitly asks for it.
 - ❌ No CSS resets beyond `* { box-sizing: border-box; }`.
 
 ## Worked example: minimal report skeleton

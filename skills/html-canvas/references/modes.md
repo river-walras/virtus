@@ -4,6 +4,20 @@ One section per mode. Each lists must-haves, recommended visual patterns, canoni
 
 All examples live in `references/examples/`. Read them with the Read tool — they are the ground truth for the visual style.
 
+## Interaction level defaults
+
+`interaction_level=auto` maps to these defaults:
+
+| Mode | Default | Expected behavior |
+|---|---|---|
+| `spec` | `light` | Comparison toggles, tabs/accordions, jump links, and copy buttons for the chosen direction or implementation prompt when useful. |
+| `code-review` | `light` | Severity/file filters, collapsible diffs, anchor links, and a copyable review summary or reviewer prompt. |
+| `design` | `full` | Live controls for tunable parameters, previews that update in place, and copy/export of selected parameters. |
+| `report` | `light` | Table of contents, detail toggles, source links, and copy buttons for TL;DR, key findings, or follow-up prompt when useful. |
+| `editor` | `full` | Direct manipulation, validation, reset/undo where cheap, and a prominent Copy as X export. |
+
+Use `none` only when interaction would distract from a short static artifact. Use `full` outside `design`/`editor` when the user needs to tune, triage, simulate, annotate, or export state.
+
 ---
 
 ## `spec` — Specs, planning, exploration
@@ -26,6 +40,7 @@ All examples live in `references/examples/`. Read them with the Read tool — th
 - SVG arrows/boxes for data flow.
 - Tabbed or accordion navigation when the doc gets long.
 - Mockups rendered as actual HTML/CSS, not images.
+- `interaction_level=auto`: include light controls such as tabs, compare filters, jump links, or a copyable selected recommendation when they help the decision.
 
 **Example prompt:**
 > "I'm not sure what direction to take the onboarding screen. Generate 6 distinctly different approaches — vary layout, tone, and density — and lay them out as a single HTML file in a grid so I can compare them side by side. Label each with the tradeoff it's making."
@@ -52,6 +67,7 @@ All examples live in `references/examples/`. Read them with the Read tool — th
 - Side-by-side or unified diff with sticky file headers.
 - Color bar in the left margin per finding severity.
 - Collapsible sections per file.
+- Severity/file filters plus a copyable review summary when findings span multiple files.
 - Highlight.js or similar for syntax coloring (CDN OK).
 
 **Example prompt:**
@@ -80,6 +96,7 @@ All examples live in `references/examples/`. Read them with the Read tool — th
 - Live preview that updates on input.
 - Real CSS animations and transitions, not GIF mockups.
 - Parameter values visible next to their controls.
+- `interaction_level=auto`: use full interaction with sliders, toggles, editable values, and a copy/export button for the chosen parameters.
 
 **Example prompt:**
 > "I want to prototype a new checkout button — when clicked it does a play animation and then turns purple quickly. Create an HTML file with several sliders and options for me to try different options on this animation, give me a copy button to copy the parameters that worked well."
@@ -111,7 +128,8 @@ All examples live in `references/examples/`. Read them with the Read tool — th
 - SVG flowcharts inline, not as separate images.
 - Pull quotes and callouts for emphasis.
 - Optional table of contents for longer reports.
-- Dark-mode friendly (`prefers-color-scheme`).
+- Optional `.invert` sections for intentional dark slides or emphasis blocks; do not use automatic `prefers-color-scheme` unless the user asks for system dark mode.
+- `interaction_level=auto`: include light navigation, expandable details, source links, and copy buttons for TL;DR or follow-up prompts when useful.
 
 **Example prompt:**
 > "I don't understand how our rate limiter actually works. Read the relevant code and produce a single HTML explainer page: a diagram of the token-bucket flow, the 3–4 key code snippets annotated, and a 'gotchas' section at the bottom. Optimize it for someone reading it once."
@@ -138,6 +156,7 @@ All examples live in `references/examples/`. Read them with the Read tool — th
 - Minimal chrome — the data is the UI.
 - Show counts/stats live (token count, item count, changed-keys count).
 - Undo or reset where it costs little to add.
+- `interaction_level=auto`: use full interaction with direct manipulation, validation, live counts, and a prominent export.
 
 **Example prompts:**
 > "I need to reprioritize these 30 Linear tickets. Make me an HTML file with each ticket as a draggable card across Now / Next / Later / Cut columns. Pre-sort them by your best guess. Add a 'copy as markdown' button that exports the final ordering with a one-line rationale per bucket."
